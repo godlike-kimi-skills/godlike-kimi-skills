@@ -75,12 +75,35 @@ MODELS = {
     ),
 }
 
-# 任务复杂度系数
+# 任务复杂度系数 (Token)
 COMPLEXITY_MULTIPLIERS = {
     "low": 1.0,
     "medium": 2.5,
     "high": 5.0,
     "expert": 8.0,
+}
+
+# 任务复杂度时间系数 (相对于基础时间的乘数)
+COMPLEXITY_TIME_MULTIPLIERS = {
+    "low": 1.0,      # 基础时间不变
+    "medium": 2.0,   # 2倍基础时间
+    "high": 4.0,     # 4倍基础时间
+    "expert": 6.0,   # 6倍基础时间
+}
+
+# 任务类型时间基准 (分钟)
+# 格式: (基础时间, 时间范围_min, 时间范围_max)
+TASK_TIME_PATTERNS = {
+    "file_read": (2, 1, 3),
+    "code_review": (15, 10, 25),
+    "documentation": (20, 15, 35),
+    "refactoring": (30, 20, 50),
+    "debugging": (45, 30, 75),
+    "architecture": (90, 60, 120),
+    "planning": (60, 45, 90),
+    "code_generation": (20, 15, 30),
+    "testing": (20, 15, 30),
+    "optimization": (45, 30, 60),
 }
 
 # 任务类型基准Token消耗 (输入:输出比例)
@@ -277,6 +300,9 @@ class TokenEstimator:
         estimated_input = int((base_input + context_tokens) * multiplier)
         estimated_output = int(base_output * multiplier)
         
+        # 计算时间估算
+        time_estimate = self._estimate_time(task_type, complexity)
+        
         return {
             "task": task_description,
             "task_type": task_type,
@@ -285,8 +311,58 @@ class TokenEstimator:
             "input_tokens": estimated_input,
             "output_tokens": estimated_output,
             "total_tokens": estimated_input + estimated_output,
-            "context_tokens": context_tokens
+            "context_tokens": context_tokens,
+            "time_estimate": time_estimate
         }
+    
+    def _estimate_time(self, task_type: str, complexity: str) -> Dict:
+        """
+        估算任务执行时间
+        
+        Returns:
+            时间估算字典，包含分钟数和可读格式
+        """
+        # 获取时间基准
+        base_time, min_time, max_time = TASK_TIME_PATTERNS.get(
+            task_type, (30, 20, 50)
+        )
+        
+        # 应用复杂度时间系数
+        time_multiplier = COMPLEXITY_TIME_MULTIPLIERS.get(complexity, 5.0)
+        
+        estimated_minutes = int(base_time * time_multiplier)
+        estimated_min_min = int(min_time * time_multiplier)
+        estimated_max_min = int(max_time * time_multiplier)
+        
+        # 生成可读时间字符串
+        time_readable = self._format_duration(estimated_minutes)
+        time_range = f"{self._format_duration(estimated_min_min)} - {self._format_duration(estimated_max_min)}"
+        
+        return {
+            "minutes": estimated_minutes,
+            "min_minutes": estimated_min_min,
+            "max_minutes": estimated_max_min,
+            "readable": time_readable,
+            "range": time_range,
+            "base_time": base_time,
+            "multiplier": time_multiplier
+        }
+    
+    def _format_duration(self, minutes: int) -> str:
+        """将分钟数格式化为可读字符串"""
+        if minutes < 60:
+            return f"{minutes}分钟"
+        elif minutes == 60:
+            return "1小时"
+        elif minutes < 120:
+            return f"1小时{minutes - 60}分钟"
+        else:
+            hours = minutes // 60
+            mins = minutes % 60
+            if mins == 0:
+                return f"{hours}小时"
+            else:
+                return f"{hours}小时{mins}分钟"
     
     def _detect_task_type(self, description: str) -> str:
         """从描述中检测任务类型"""
@@ -408,6 +484,71 @@ class CostAnalyzer:
         return "\n".join(lines)
 
 
+class TimeAnalyzer:
+    """时间分析器"""
+    
+    @staticmethod
+    def format_duration(minutes: int) -> str:
+        """将分钟数格式化为可读字符串"""
+        if minutes < 60:
+            return f"{minutes}分钟"
+        elif minutes == 60:
+            return "1小时"
+        elif minutes < 120:
+            return f"1小时{minutes - 60}分钟"
+        else:
+            hours = minutes // 60
+            mins = minutes % 60
+            if mins == 0:
+                return f"{hours}小时"
+            else:
+                return f"{hours}小时{mins}分钟"
+    
+    @staticmethod
+    def generate_time_report(time_estimate: Dict) -> str:
+        """生成时间估算报告"""
+        if not time_estimate:
+            return ""
+        
+        lines = [
+            "",
+            "[TIME] 时间估算:",
+            f"  预计用时: {time_estimate['readable']}",
+            f"  时间范围: {time_estimate['range']}",
+        ]
+        
+        # 添加建议
+        minutes = time_estimate['minutes']
+        if minutes <= 5:
+            lines.append("  [TIP] 建议: 可立即执行，短平快任务")
+        elif minutes <= 30:
+            lines.append("  [TIP] 建议: 安排专注时段，避免中断")
+        elif minutes <= 60:
+            lines.append("  [TIP] 建议: 预留完整小时，安排在中上午/下午")
+        else:
+            lines.append("  [TIP] 建议: 大型任务，建议拆分或预留半天时间")
+        
+        return "\n".join(lines)
+    
+    @staticmethod
+    def get_scheduling_suggestion(time_estimate: Dict) -> str:
+        """获取时间安排建议"""
+        minutes = time_estimate.get('minutes', 30)
+        
+        if minutes <= 5:
+            return "可立即执行"
+        elif minutes <= 15:
+            return "适合间隙时间完成"
+        elif minutes <= 30:
+            return "建议专注时段(番茄钟)"
+        elif minutes <= 60:
+            return "建议安排完整小时"
+        elif minutes <= 120:
+            return "建议上午或下午完整时段"
+        else:
+            return "建议预留半天，或拆分为子任务"
+
+
 def print_banner():
     """打印横幅"""
     print("=" * 60)
@@ -496,11 +637,22 @@ def main():
                 print(json.dumps(result, indent=2, ensure_ascii=False))
             else:
                 print(f"文件: {result['name']}")
-                print(f"大小: {result['size']:,} bytes")
+                print(f"大小: {result['size'],:} bytes")
                 print(f"行数: {result['lines']}")
                 print(f"字符: {result['chars']}")
                 print(f"Token: ~{result['tokens']}")
                 print(f"预估成本: ${cost['total_cost']:.4f}")
+                
+                # 添加时间估算（基于文件大小）
+                if result['tokens'] < 500:
+                    time_est = "~2分钟"
+                elif result['tokens'] < 2000:
+                    time_est = "~5分钟"
+                elif result['tokens'] < 5000:
+                    time_est = "~10分钟"
+                else:
+                    time_est = "~15分钟"
+                print(f"预估用时: {time_est} (阅读+分析)")
                 
                 if args.compare:
                     print("\n模型对比:")
@@ -538,6 +690,9 @@ def main():
         cost = analyzer.calculate_cost(result['input_tokens'], result['output_tokens'])
         result['cost'] = cost
         
+        # 获取时间估算报告
+        time_report = TimeAnalyzer.generate_time_report(result.get('time_estimate'))
+        
         if args.json:
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
@@ -548,6 +703,7 @@ def main():
             print(f"输出Token: ~{result['output_tokens']}")
             print(f"总计: ~{result['total_tokens']} tokens")
             print(f"预估成本: ${cost['total_cost']:.4f}")
+            print(time_report)
     
     # 报告
     elif args.report:
