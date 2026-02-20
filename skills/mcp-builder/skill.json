@@ -1,0 +1,95 @@
+{
+  "name": "mcp-builder",
+  "title": "MCP构建器",
+  "title_en": "MCP Builder",
+  "description": "快速构建MCP(Model Context Protocol)服务器，集成外部API和工具到Kimi CLI",
+  "description_en": "Quickly build MCP (Model Context Protocol) servers to integrate external APIs and tools into Kimi CLI",
+  "version": "1.0.0",
+  "category": "development",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "python_version": ">=3.10",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "description": "操作类型: init(初始化), add-tool(添加工具), build(构建), validate(验证)",
+      "description_en": "Action type: init, add-tool, build, validate",
+      "enum": ["init", "add-tool", "build", "validate"],
+      "default": "init",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "description": "MCP服务器名称",
+      "description_en": "MCP server name",
+      "required": false
+    },
+    "output": {
+      "type": "string",
+      "description": "输出目录",
+      "description_en": "Output directory",
+      "default": "./mcp-server",
+      "required": false
+    },
+    "transport": {
+      "type": "string",
+      "description": "传输方式: stdio(标准输入输出) 或 sse(服务器发送事件)",
+      "description_en": "Transport type: stdio or sse",
+      "enum": ["stdio", "sse"],
+      "default": "stdio",
+      "required": false
+    },
+    "tools": {
+      "type": "array",
+      "description": "工具定义列表，每个工具包含name, description, parameters",
+      "description_en": "List of tool definitions with name, description, and parameters",
+      "required": false
+    },
+    "port": {
+      "type": "integer",
+      "description": "SSE模式下的端口号",
+      "description_en": "Port number for SSE mode",
+      "default": 3000,
+      "required": false
+    },
+    "templates": {
+      "type": "array",
+      "description": "预设模板: weather(天气), search(搜索), calculator(计算器), file(文件操作)",
+      "description_en": "Preset templates: weather, search, calculator, file",
+      "enum": ["weather", "search", "calculator", "file"],
+      "required": false
+    },
+    "force": {
+      "type": "boolean",
+      "description": "强制覆盖已存在的文件",
+      "description_en": "Force overwrite existing files",
+      "default": false,
+      "required": false
+    }
+  },
+  "examples": [
+    {
+      "description": "初始化一个stdio模式的MCP服务器",
+      "command": "python main.py init --name my-server --output ./my-mcp",
+      "description_en": "Initialize a stdio mode MCP server"
+    },
+    {
+      "description": "初始化带天气工具的SSE服务器",
+      "command": "python main.py init --name weather-server --transport sse --port 8080 --templates weather",
+      "description_en": "Initialize an SSE server with weather tool"
+    },
+    {
+      "description": "验证MCP服务器配置",
+      "command": "python main.py validate --output ./my-mcp",
+      "description_en": "Validate MCP server configuration"
+    }
+  ],
+  "dependencies": {
+    "required": [],
+    "optional": ["mcp>=1.0.0", "fastapi>=0.100.0", "uvicorn>=0.23.0"]
+  },
+  "keywords": ["mcp", "model-context-protocol", "server", "api", "integration", "tool"],
+  "repository": "https://github.com/godlike-kimi-skills/mcp-builder",
+  "homepage": "https://github.com/godlike-kimi-skills/mcp-builder#readme"
+}

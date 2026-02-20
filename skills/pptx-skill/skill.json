@@ -1,0 +1,71 @@
+{
+  "name": "pptx-skill",
+  "title": "PPT处理器",
+  "title_en": "PowerPoint Processor",
+  "description": "创建、编辑PowerPoint演示文稿，支持模板、图表、图片和多种格式转换",
+  "description_en": "Create and edit PowerPoint presentations with templates, charts, images, and format conversion support",
+  "version": "1.0.0",
+  "category": "automation",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "entry": "main.py",
+  "language": "python",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "description": "操作类型：create, edit, merge, split, convert, template",
+      "enum": ["create", "edit", "merge", "split", "convert", "template"]
+    },
+    "input": {
+      "type": "string",
+      "required": false,
+      "description": "输入文件路径（Markdown, JSON, PPTX）"
+    },
+    "output": {
+      "type": "string",
+      "required": false,
+      "description": "输出文件路径（PPTX, PDF, PNG）"
+    },
+    "template": {
+      "type": "string",
+      "required": false,
+      "description": "模板文件路径或预设模板名称"
+    },
+    "slides": {
+      "type": "array",
+      "required": false,
+      "description": "幻灯片内容数组"
+    },
+    "theme": {
+      "type": "string",
+      "required": false,
+      "description": "主题设置：default, dark, light, blue, green",
+      "default": "default"
+    },
+    "charts": {
+      "type": "object",
+      "required": false,
+      "description": "图表配置对象"
+    },
+    "images": {
+      "type": "array",
+      "required": false,
+      "description": "要插入的图片路径数组"
+    },
+    "config": {
+      "type": "object",
+      "required": false,
+      "description": "额外配置选项"
+    }
+  },
+  "dependencies": [
+    "python-pptx>=0.6.21",
+    "Pillow>=9.0.0",
+    "matplotlib>=3.5.0"
+  ],
+  "platforms": ["windows", "linux", "macos"],
+  "keywords": ["pptx", "powerpoint", "presentation", "slide", "chart", "template"],
+  "repository": "https://github.com/godlike-kimi/pptx-skill",
+  "documentation": "https://github.com/godlike-kimi/pptx-skill/blob/main/README.md"
+}

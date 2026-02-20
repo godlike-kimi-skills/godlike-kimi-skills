@@ -1,0 +1,42 @@
+{
+  "name": "owasp-security",
+  "version": "1.0.0",
+  "description": "OWASP安全标准检查工具，基于OWASP Top 10 2025进行安全漏洞检测和代码审查",
+  "category": "security",
+  "author": "Godlike Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "keywords": [
+    "owasp",
+    "security",
+    "vulnerability",
+    "code-review",
+    "compliance",
+    "audit",
+    "penetration-testing"
+  ],
+  "capabilities": [
+    "vulnerability_detection",
+    "code_review",
+    "compliance_check",
+    "security_audit",
+    "risk_assessment",
+    "remediation_suggestion"
+  ],
+  "requirements": {
+    "python": ">=3.8",
+    "dependencies": [
+      "bandit>=1.7.5",
+      "semgrep>=1.50.0",
+      "safety>=2.3.0",
+      "cryptography>=41.0.0"
+    ]
+  },
+  "config": {
+    "owasp_version": "2025",
+    "severity_levels": ["critical", "high", "medium", "low"],
+    "auto_fix": false,
+    "compliance_frameworks": ["owasp-top-10", "pci-dss", "gdpr"]
+  }
+}

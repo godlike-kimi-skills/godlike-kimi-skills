@@ -1,0 +1,76 @@
+{
+  "name": "huggingface-cli",
+  "version": "1.0.0",
+  "description": "HuggingFace Hub CLI工具 - 简化模型和数据集的搜索、下载与管理",
+  "category": "ai",
+  "author": "Kimi Code CLI",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "python_version": ">=3.8",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "description": "操作类型: search, download, info, login, logout, cache, list",
+      "enum": ["search", "download", "info", "login", "logout", "cache", "list"]
+    },
+    "model": {
+      "type": "string",
+      "required": false,
+      "description": "模型ID (例如: bert-base-chinese, gpt2)"
+    },
+    "dataset": {
+      "type": "string",
+      "required": false,
+      "description": "数据集ID (例如: glue, wikitext)"
+    },
+    "token": {
+      "type": "string",
+      "required": false,
+      "description": "HuggingFace访问令牌 (用于私有资源)"
+    },
+    "query": {
+      "type": "string",
+      "required": false,
+      "description": "搜索关键词"
+    },
+    "limit": {
+      "type": "integer",
+      "required": false,
+      "default": 10,
+      "description": "搜索结果数量限制"
+    },
+    "local_dir": {
+      "type": "string",
+      "required": false,
+      "description": "本地下载目录"
+    },
+    "cache_dir": {
+      "type": "string",
+      "required": false,
+      "description": "缓存目录"
+    },
+    "include": {
+      "type": "array",
+      "required": false,
+      "description": "要下载的文件模式 (例如: [\"*.bin\", \"*.json\"])"
+    },
+    "exclude": {
+      "type": "array",
+      "required": false,
+      "description": "要排除的文件模式"
+    },
+    "resume": {
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "是否启用断点续传"
+    },
+    "force": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "强制重新下载"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "name": "test-driven-development",
+  "version": "1.0.0",
+  "description": "测试驱动开发(TDD)方法论Skill，提供完整的TDD工作流指导、测试用例生成和代码覆盖率分析",
+  "category": "development",
+  "author": "Kimi",
+  "license": "MIT",
+  "entry": "main.py",
+  "language": "python",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "description": "操作类型: workflow(工作流指导), generate(生成测试), coverage(覆盖率分析), template(测试模板)",
+      "enum": ["workflow", "generate", "coverage", "template", "red-green-refactor"],
+      "required": true
+    },
+    "language": {
+      "type": "string",
+      "description": "编程语言",
+      "enum": ["python", "javascript", "typescript", "java", "go", "rust", "cpp"],
+      "default": "python"
+    },
+    "feature": {
+      "type": "string",
+      "description": "要开发的功能描述",
+      "required": false
+    },
+    "test_framework": {
+      "type": "string",
+      "description": "测试框架",
+      "enum": ["pytest", "unittest", "jest", "mocha", "junit", "testng", "gtest", "catch2"],
+      "default": "pytest"
+    },
+    "file_path": {
+      "type": "string",
+      "description": "源代码文件路径",
+      "required": false
+    },
+    "test_file_path": {
+      "type": "string",
+      "description": "测试文件路径",
+      "required": false
+    },
+    "coverage_threshold": {
+      "type": "number",
+      "description": "覆盖率阈值百分比",
+      "default": 80
+    },
+    "output_dir": {
+      "type": "string",
+      "description": "输出目录",
+      "default": "./tests"
+    }
+  },
+  "examples": [
+    {
+      "description": "获取TDD工作流指导",
+      "command": "python main.py --action workflow --language python --feature '实现用户登录功能'"
+    },
+    {
+      "description": "生成测试用例",
+      "command": "python main.py --action generate --language python --test_framework pytest --feature '计算购物车总价'"
+    },
+    {
+      "description": "分析代码覆盖率",
+      "command": "python main.py --action coverage --file_path src/calculator.py --coverage_threshold 85"
+    },
+    {
+      "description": "生成测试模板",
+      "command": "python main.py --action template --language javascript --test_framework jest --output_dir ./tests"
+    }
+  ]
+}

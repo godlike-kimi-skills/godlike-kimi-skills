@@ -1,0 +1,72 @@
+{
+  "name": "systematic-debugging",
+  "title": "系统化调试",
+  "title_en": "Systematic Debugging",
+  "description": "结构化的bug定位和修复方法论，支持多种编程语言。提供科学的调试流程、根因分析技术和修复建议生成。",
+  "description_en": "Structured bug localization and fixing methodology supporting multiple programming languages. Provides scientific debugging workflows, root cause analysis techniques, and fix suggestion generation.",
+  "category": "development",
+  "version": "1.0.0",
+  "author": "Godlike Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": ["python", "javascript", "typescript", "java", "cpp", "c", "rust", "go", "ruby", "php"],
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "description": "执行的操作类型",
+      "enum": ["analyze", "strategy", "root_cause", "suggest_fix", "full_diagnosis"],
+      "default": "full_diagnosis"
+    },
+    "language": {
+      "type": "string",
+      "required": true,
+      "description": "编程语言",
+      "enum": ["python", "javascript", "typescript", "java", "cpp", "c", "rust", "go", "ruby", "php", "csharp", "swift", "kotlin"]
+    },
+    "error": {
+      "type": "string",
+      "required": false,
+      "description": "错误信息或异常详情"
+    },
+    "context": {
+      "type": "string",
+      "required": false,
+      "description": "代码上下文或相关代码片段"
+    },
+    "stack_trace": {
+      "type": "string",
+      "required": false,
+      "description": "堆栈跟踪信息"
+    },
+    "environment": {
+      "type": "object",
+      "required": false,
+      "description": "环境信息（OS, 依赖版本等）"
+    },
+    "strategy": {
+      "type": "string",
+      "required": false,
+      "description": "调试策略类型",
+      "enum": ["binary_search", "forward", "backward", "deductive", "inductive", "divide_conquer"]
+    },
+    "output_format": {
+      "type": "string",
+      "required": false,
+      "description": "输出格式",
+      "enum": ["text", "json", "markdown"],
+      "default": "markdown"
+    }
+  },
+  "capabilities": [
+    "error_analysis",
+    "debug_strategy_recommendation",
+    "root_cause_analysis",
+    "fix_suggestion",
+    "pattern_recognition",
+    "hypothesis_generation"
+  ],
+  "tags": ["debugging", "troubleshooting", "bug-fix", "root-cause-analysis", "methodology"],
+  "dependencies": [],
+  "min_kimi_version": "1.0.0"
+}

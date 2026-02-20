@@ -1,0 +1,663 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+MCP Builder - 快速构建MCP(Model Context Protocol)服务器
+
+用于生成MCP服务器脚手架、管理工具和验证配置。
+"""
+
+import argparse
+import json
+import os
+import sys
+from pathlib import Path
+from typing import Dict, List, Optional, Any
+
+
+# =============================================================================
+# 模板定义
+# =============================================================================
+
+WEATHER_TOOL_TEMPLATE = '''
+@mcp.tool()
+async def get_current_weather(location: str, unit: str = "celsius") -> str:
+    """
+    获取指定位置的当前天气。
+    
+    Args:
+        location: 城市名称或位置
+        unit: 温度单位 (celsius/fahrenheit)
+    
+    Returns:
+        天气信息字符串
+    """
+    # 这里集成实际的天气API
+    return f"当前 {location} 的天气: 晴朗, 25°{unit[0].upper()}"
+
+
+@mcp.tool()
+async def get_forecast(location: str, days: int = 3) -> str:
+    """
+    获取天气预报。
+    
+    Args:
+        location: 城市名称或位置
+        days: 预报天数 (1-7)
+    
+    Returns:
+        天气预报字符串
+    """
+    return f"{location} 未来 {days} 天预报: 晴转多云"
+'''
+
+SEARCH_TOOL_TEMPLATE = '''
+@mcp.tool()
+async def web_search(query: str, limit: int = 10) -> str:
+    """
+    执行网页搜索。
+    
+    Args:
+        query: 搜索关键词
+        limit: 返回结果数量
+    
+    Returns:
+        搜索结果列表
+    """
+    # 集成搜索引擎API
+    return f"搜索 '{query}' 的结果 (前{limit}条): [示例结果]"
+
+
+@mcp.tool()
+async def local_search(path: str, pattern: str) -> str:
+    """
+    在本地文件中搜索。
+    
+    Args:
+        path: 搜索目录路径
+        pattern: 文件匹配模式
+    
+    Returns:
+        匹配的文件列表
+    """
+    import glob
+    files = glob.glob(os.path.join(path, "**", pattern), recursive=True)
+    return f"找到 {len(files)} 个匹配文件"
+'''
+
+CALCULATOR_TOOL_TEMPLATE = '''
+@mcp.tool()
+async def calculate(expression: str) -> str:
+    """
+    计算数学表达式。
+    
+    Args:
+        expression: 数学表达式，如 "2 + 2" 或 "sin(pi/2)"
+    
+    Returns:
+        计算结果
+    """
+    try:
+        # 安全计算 - 使用eval的限制版本
+        allowed = {"__builtins__": {}}
+        allowed.update({
+            "abs": abs, "round": round, "max": max, "min": min,
+            "sum": sum, "pow": pow
+        })
+        result = eval(expression, allowed, {"pi": 3.14159, "e": 2.71828})
+        return str(result)
+    except Exception as e:
+        return f"计算错误: {str(e)}"
+
+
+@mcp.tool()
+async def convert_unit(value: float, from_unit: str, to_unit: str) -> str:
+    """
+    单位转换。
+    
+    Args:
+        value: 要转换的数值
+        from_unit: 源单位
+        to_unit: 目标单位
+    
+    Returns:
+        转换后的值
+    """
+    conversions = {
+        ("m", "km"): 0.001,
+        ("km", "m"): 1000,
+        ("c", "f"): lambda x: x * 9/5 + 32,
+        ("f", "c"): lambda x: (x - 32) * 5/9,
+    }
+    key = (from_unit.lower(), to_unit.lower())
+    if key in conversions:
+        conv = conversions[key]
+        result = conv(value) if callable(conv) else value * conv
+        return f"{value} {from_unit} = {result} {to_unit}"
+    return f"不支持的单位转换: {from_unit} -> {to_unit}"
+'''
+
+FILE_TOOL_TEMPLATE = '''
+@mcp.tool()
+async def read_file(path: str, encoding: str = "utf-8") -> str:
+    """
+    读取文件内容。
+    
+    Args:
+        path: 文件路径
+        encoding: 文件编码
+    
+    Returns:
+        文件内容
+    """
+    try:
+        with open(path, "r", encoding=encoding) as f:
+            return f.read()
+    except Exception as e:
+        return f"读取错误: {str(e)}"
+
+
+@mcp.tool()
+async def write_file(path: str, content: str, encoding: str = "utf-8") -> str:
+    """
+    写入文件内容。
+    
+    Args:
+        path: 文件路径
+        content: 文件内容
+        encoding: 文件编码
+    
+    Returns:
+        操作结果
+    """
+    try:
+        with open(path, "w", encoding=encoding) as f:
+            f.write(content)
+        return f"文件已写入: {path}"
+    except Exception as e:
+        return f"写入错误: {str(e)}"
+
+
+@mcp.tool()
+async def list_directory(path: str = ".") -> str:
+    """
+    列出目录内容。
+    
+    Args:
+        path: 目录路径
+    
+    Returns:
+        目录内容列表
+    """
+    try:
+        items = os.listdir(path)
+        return "\\n".join(items) if items else "目录为空"
+    except Exception as e:
+        return f"列出目录错误: {str(e)}"
+'''
+
+
+# =============================================================================
+# MCP服务器代码模板
+# =============================================================================
+
+SERVER_TEMPLATE_STDIO = '''#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+{server_name} - MCP Server
+Generated by MCP Builder
+"""
+
+import os
+import sys
+from mcp.server.fastmcp import FastMCP
+
+# 初始化MCP服务器
+mcp = FastMCP("{server_name}")
+
+
+# =============================================================================
+# 工具定义
+# =============================================================================
+
+{tools_code}
+
+
+# =============================================================================
+# 主入口
+# =============================================================================
+
+if __name__ == "__main__":
+    # stdio模式运行
+    mcp.run(transport="stdio")
+'''
+
+SERVER_TEMPLATE_SSE = '''#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+{server_name} - MCP Server (SSE Mode)
+Generated by MCP Builder
+"""
+
+import os
+import sys
+import argparse
+from mcp.server.fastmcp import FastMCP
+from mcp.server.sse import SseServerTransport
+from starlette.applications import Starlette
+from starlette.routing import Mount, Route
+import uvicorn
+
+# 初始化MCP服务器
+mcp = FastMCP("{server_name}")
+
+
+# =============================================================================
+# 工具定义
+# =============================================================================
+
+{tools_code}
+
+
+# =============================================================================
+# SSE 服务器设置
+# =============================================================================
+
+def create_app():
+    """创建Starlette应用"""
+    sse = SseServerTransport("/messages/")
+    
+    async def handle_sse(request):
+        async with sse.connect_sse(
+            request.scope, request.receive, request.send
+        ) as (read_stream, write_stream):
+            await mcp.run(
+                read_stream, write_stream, mcp.create_initialization_options()
+            )
+    
+    return Starlette(
+        debug=True,
+        routes=[
+            Route("/sse", endpoint=handle_sse),
+            Mount("/messages/", app=sse.handle_post_message),
+        ],
+    )
+
+
+# =============================================================================
+# 主入口
+# =============================================================================
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="{server_name} MCP Server")
+    parser.add_argument("--port", type=int, default={port}, help="服务器端口")
+    parser.add_argument("--host", type=str, default="0.0.0.0", help="服务器主机")
+    args = parser.parse_args()
+    
+    app = create_app()
+    print(f"Starting {server_name} on http://{args.host}:{args.port}")
+    uvicorn.run(app, host=args.host, port=args.port)
+'''
+
+CONFIG_TEMPLATE = '''{{
+  "name": "{server_name}",
+  "version": "1.0.0",
+  "description": "MCP Server generated by MCP Builder",
+  "transport": "{transport}",
+  "port": {port},
+  "tools": [{tools_list}]
+}}
+'''
+
+REQUIREMENTS_TEMPLATE = '''mcp>=1.0.0
+{extra_deps}
+'''
+
+README_TEMPLATE = '''# {server_name}
+
+由 MCP Builder 生成的 MCP 服务器。
+
+## 运行
+
+```bash
+# stdio模式
+python server.py
+
+# sse模式
+python server.py --port 8080
+```
+
+## 工具列表
+
+{tools_docs}
+'''
+
+
+# =============================================================================
+# MCPBuilder 主类
+# =============================================================================
+
+class MCPBuilder:
+    """MCP服务器构建器"""
+    
+    TEMPLATES = {
+        "weather": WEATHER_TOOL_TEMPLATE,
+        "search": SEARCH_TOOL_TEMPLATE,
+        "calculator": CALCULATOR_TOOL_TEMPLATE,
+        "file": FILE_TOOL_TEMPLATE,
+    }
+    
+    def __init__(self, output_dir: str = "./mcp-server"):
+        self.output_dir = Path(output_dir)
+        self.tools_dir = self.output_dir / "tools"
+    
+    def init_server(
+        self,
+        name: str,
+        transport: str = "stdio",
+        port: int = 3000,
+        templates: Optional[List[str]] = None,
+        force: bool = False
+    ) -> Dict[str, Any]:
+        """
+        初始化MCP服务器项目。
+        
+        Args:
+            name: 服务器名称
+            transport: 传输方式 (stdio/sse)
+            port: SSE模式端口
+            templates: 预设模板列表
+            force: 是否强制覆盖
+        
+        Returns:
+            操作结果信息
+        """
+        if self.output_dir.exists() and not force:
+            return {
+                "success": False,
+                "error": f"目录已存在: {self.output_dir}，使用 --force 强制覆盖"
+            }
+        
+        # 创建目录结构
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.tools_dir.mkdir(exist_ok=True)
+        
+        # 收集工具代码
+        tools_code = []
+        tools_list = []
+        templates = templates or []
+        
+        for template_name in templates:
+            if template_name in self.TEMPLATES:
+                tools_code.append(self.TEMPLATES[template_name])
+                tools_list.append(f'"{template_name}"')
+        
+        # 如果没有模板，添加示例工具
+        if not tools_code:
+            tools_code.append('''
+@mcp.tool()
+async def hello(name: str = "World") -> str:
+    """
+    示例工具: 打招呼
+    
+    Args:
+        name: 名称
+    
+    Returns:
+        问候语
+    """
+    return f"Hello, {name}!"
+''')
+            tools_list.append('"hello"')
+        
+        tools_code_str = "\n".join(tools_code)
+        tools_list_str = ", ".join(tools_list)
+        
+        # 生成服务器文件
+        if transport == "sse":
+            server_code = SERVER_TEMPLATE_SSE.format(
+                server_name=name,
+                tools_code=tools_code_str,
+                port=port
+            )
+            extra_deps = "fastapi>=0.100.0\nuvicorn>=0.23.0\nstarlette>=0.30.0"
+        else:
+            server_code = SERVER_TEMPLATE_STDIO.format(
+                server_name=name,
+                tools_code=tools_code_str
+            )
+            extra_deps = ""
+        
+        # 写入文件
+        (self.output_dir / "server.py").write_text(server_code, encoding="utf-8")
+        
+        config_content = CONFIG_TEMPLATE.format(
+            server_name=name,
+            transport=transport,
+            port=port,
+            tools_list=tools_list_str
+        )
+        (self.output_dir / "config.json").write_text(config_content, encoding="utf-8")
+        
+        requirements_content = REQUIREMENTS_TEMPLATE.format(extra_deps=extra_deps)
+        (self.output_dir / "requirements.txt").write_text(
+            requirements_content, encoding="utf-8"
+        )
+        
+        # 创建 __init__.py
+        (self.tools_dir / "__init__.py").write_text("", encoding="utf-8")
+        
+        # 创建README
+        tools_docs = "\n".join([f"- {t}" for t in templates]) if templates else "- hello"
+        readme_content = README_TEMPLATE.format(
+            server_name=name,
+            tools_docs=tools_docs
+        )
+        (self.output_dir / "README.md").write_text(readme_content, encoding="utf-8")
+        
+        return {
+            "success": True,
+            "message": f"MCP服务器 '{name}' 创建成功",
+            "output_dir": str(self.output_dir),
+            "transport": transport,
+            "templates": templates or ["hello"]
+        }
+    
+    def validate(self) -> Dict[str, Any]:
+        """
+        验证MCP服务器配置。
+        
+        Returns:
+            验证结果
+        """
+        issues = []
+        
+        # 检查必要文件
+        required_files = ["server.py", "config.json"]
+        for file in required_files:
+            file_path = self.output_dir / file
+            if not file_path.exists():
+                issues.append(f"缺少必要文件: {file}")
+        
+        # 验证配置文件
+        config_path = self.output_dir / "config.json"
+        if config_path.exists():
+            try:
+                with open(config_path, "r", encoding="utf-8") as f:
+                    config = json.load(f)
+                
+                required_keys = ["name", "transport"]
+                for key in required_keys:
+                    if key not in config:
+                        issues.append(f"配置文件缺少必要字段: {key}")
+                
+                if config.get("transport") == "sse" and "port" not in config:
+                    issues.append("SSE模式需要指定port字段")
+                    
+            except json.JSONDecodeError as e:
+                issues.append(f"配置文件JSON格式错误: {e}")
+        
+        return {
+            "valid": len(issues) == 0,
+            "issues": issues,
+            "message": "验证通过" if not issues else f"发现 {len(issues)} 个问题"
+        }
+    
+    def add_tool(self, name: str, description: str) -> Dict[str, Any]:
+        """
+        添加新工具到现有服务器。
+        
+        Args:
+            name: 工具名称
+            description: 工具描述
+        
+        Returns:
+            操作结果
+        """
+        tool_file = self.tools_dir / f"{name}.py"
+        
+        tool_template = f'''from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP("{name}")
+
+
+@mcp.tool()
+async def {name}(param: str) -> str:
+    """
+    {description}
+    
+    Args:
+        param: 输入参数
+    
+    Returns:
+        处理结果
+    """
+    # TODO: 实现工具逻辑
+    return f"{{name}} 结果: {{param}}"
+'''
+        
+        tool_file.write_text(tool_template, encoding="utf-8")
+        
+        return {
+            "success": True,
+            "message": f"工具 '{name}' 已添加到 {tool_file}"
+        }
+
+
+# =============================================================================
+# 命令行接口
+# =============================================================================
+
+def main():
+    """命令行入口"""
+    parser = argparse.ArgumentParser(
+        description="MCP Builder - 快速构建MCP服务器",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+示例:
+  %(prog)s init --name my-server --output ./my-mcp
+  %(prog)s init --name api-server --transport sse --port 8080
+  %(prog)s init --templates weather search
+  %(prog)s validate --output ./my-mcp
+        """
+    )
+    
+    parser.add_argument(
+        "action",
+        choices=["init", "add-tool", "validate", "build"],
+        help="操作类型"
+    )
+    
+    parser.add_argument(
+        "--name", "-n",
+        default="mcp-server",
+        help="服务器名称 (默认: mcp-server)"
+    )
+    
+    parser.add_argument(
+        "--output", "-o",
+        default="./mcp-server",
+        help="输出目录 (默认: ./mcp-server)"
+    )
+    
+    parser.add_argument(
+        "--transport", "-t",
+        choices=["stdio", "sse"],
+        default="stdio",
+        help="传输方式 (默认: stdio)"
+    )
+    
+    parser.add_argument(
+        "--port", "-p",
+        type=int,
+        default=3000,
+        help="SSE模式端口 (默认: 3000)"
+    )
+    
+    parser.add_argument(
+        "--templates",
+        nargs="+",
+        choices=["weather", "search", "calculator", "file"],
+        help="预设模板"
+    )
+    
+    parser.add_argument(
+        "--force", "-f",
+        action="store_true",
+        help="强制覆盖已存在的文件"
+    )
+    
+    parser.add_argument(
+        "--description", "-d",
+        default="",
+        help="工具描述 (用于add-tool)"
+    )
+    
+    args = parser.parse_args()
+    
+    # 执行操作
+    builder = MCPBuilder(args.output)
+    
+    if args.action == "init":
+        result = builder.init_server(
+            name=args.name,
+            transport=args.transport,
+            port=args.port,
+            templates=args.templates,
+            force=args.force
+        )
+        
+        if result["success"]:
+            print(f"✅ {result['message']}")
+            print(f"📁 输出目录: {result['output_dir']}")
+            print(f"🔌 传输方式: {result['transport']}")
+            print(f"🛠️  工具: {', '.join(result['templates'])}")
+            print("\n下一步:")
+            print(f"  cd {args.output}")
+            print("  pip install -r requirements.txt")
+            print("  python server.py")
+        else:
+            print(f"❌ 错误: {result['error']}")
+            sys.exit(1)
+    
+    elif args.action == "add-tool":
+        if not args.name or args.name == "mcp-server":
+            print("❌ 错误: 请使用 --name 指定工具名称")
+            sys.exit(1)
+        
+        result = builder.add_tool(args.name, args.description or args.name)
+        print(f"✅ {result['message']}")
+    
+    elif args.action in ("validate", "build"):
+        result = builder.validate()
+        
+        if result["valid"]:
+            print(f"✅ {result['message']}")
+        else:
+            print(f"⚠️  {result['message']}")
+            for issue in result["issues"]:
+                print(f"   - {issue}")
+            sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

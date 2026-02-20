@@ -1,0 +1,45 @@
+{
+  "name": "browser-use-skill",
+  "version": "1.0.0",
+  "description": "AI浏览器自动化工具，支持网页浏览、表单填写、数据提取和截图功能",
+  "category": "automation",
+  "author": "Godlike Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "keywords": [
+    "browser",
+    "automation",
+    "playwright",
+    "scraping",
+    "form-filling",
+    "screenshot",
+    "web"
+  ],
+  "capabilities": [
+    "web_browsing",
+    "form_filling",
+    "data_extraction",
+    "screenshot",
+    "element_interaction",
+    "javascript_execution"
+  ],
+  "requirements": {
+    "python": ">=3.8",
+    "dependencies": [
+      "playwright>=1.40.0",
+      "beautifulsoup4>=4.12.0",
+      "lxml>=4.9.0",
+      "Pillow>=10.0.0"
+    ]
+  },
+  "config": {
+    "headless": true,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "timeout": 30000,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.0"
+  }
+}

@@ -1,0 +1,23 @@
+# Browser Use Skill - Python Dependencies
+# 用于AI浏览器自动化的核心依赖包
+
+# 浏览器自动化核心库
+playwright>=1.40.0
+
+# HTML解析和数据提取
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# 图像处理
+Pillow>=10.0.0
+
+# 异步支持
+aiohttp>=3.9.0
+
+# 工具库
+python-dotenv>=1.0.0
+typing-extensions>=4.8.0
+
+# 测试依赖
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

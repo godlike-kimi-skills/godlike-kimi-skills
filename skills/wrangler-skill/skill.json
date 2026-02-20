@@ -1,0 +1,70 @@
+{
+  "name": "wrangler-skill",
+  "version": "1.0.0",
+  "description": "Cloudflare Wrangler CLI封装 - 简化Workers开发与部署",
+  "category": "cloud",
+  "author": "kimi-code-cli",
+  "license": "MIT",
+  "entry": "main.py",
+  "python": ">=3.8",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "description": "操作类型",
+      "enum": ["deploy", "dev", "kv", "d1", "r2", "tail", "init", "config", "status", "logs"]
+    },
+    "project": {
+      "type": "string",
+      "required": false,
+      "description": "项目名称或路径"
+    },
+    "command": {
+      "type": "string",
+      "required": false,
+      "description": "子命令或附加参数"
+    },
+    "env": {
+      "type": "string",
+      "required": false,
+      "description": "环境名称 (production/staging)"
+    },
+    "namespace": {
+      "type": "string",
+      "required": false,
+      "description": "KV/D1/R2 命名空间ID"
+    },
+    "key": {
+      "type": "string",
+      "required": false,
+      "description": "KV键名或D1表名"
+    },
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "KV值或文件路径"
+    },
+    "file": {
+      "type": "string",
+      "required": false,
+      "description": "文件路径"
+    },
+    "query": {
+      "type": "string",
+      "required": false,
+      "description": "D1 SQL查询语句"
+    },
+    "follow": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "是否持续跟踪日志"
+    },
+    "dry_run": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "模拟运行，不实际执行"
+    }
+  }
+}
