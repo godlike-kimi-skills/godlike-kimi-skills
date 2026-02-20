@@ -1,0 +1,9 @@
+# UUID Generator Skill Dependencies
+# Python >= 3.8
+
+# No external dependencies required
+# Uses Python's built-in `uuid` and `secrets` modules
+
+# Development dependencies (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0

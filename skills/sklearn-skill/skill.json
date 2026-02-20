@@ -1,0 +1,10 @@
+{
+  "name": "sklearn-skill",
+  "category": "ai-ml",
+  "version": "1.0.0",
+  "description": "Scikit-Learn机器学习工具，支持模型训练、评估和预处理",
+  "author": "godlike-kimi",
+  "dependencies": ["scikit-learn", "numpy", "pandas", "matplotlib", "seaborn"],
+  "entry_point": "main.py",
+  "python_version": ">=3.8"
+}

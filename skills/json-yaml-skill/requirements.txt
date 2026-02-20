@@ -1,0 +1,12 @@
+# JSON/YAML Skill Dependencies
+# Python >= 3.8
+
+# YAML support
+pyyaml>=6.0
+
+# JSONPath query support
+jsonpath-ng>=1.5.3
+
+# Development dependencies (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0

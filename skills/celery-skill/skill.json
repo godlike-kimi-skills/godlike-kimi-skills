@@ -1,0 +1,45 @@
+{
+  "schema_version": "v1",
+  "name": "celery-skill",
+  "version": "1.0.0",
+  "title": "Celery Task Queue",
+  "description": "Professional Celery distributed task queue operations including task definition, worker management, periodic tasks, chains, groups, chords, and result backends. Use when building distributed task systems, scheduling periodic jobs, or implementing complex task workflows.",
+  "category": "messaging",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "homepage": "https://github.com/godlike-kimi-skills/celery-skill",
+  "repository": "https://github.com/godlike-kimi-skills/celery-skill.git",
+  "keywords": ["celery", "task-queue", "distributed", "worker", "periodic", "scheduler", "workflow"],
+  "language": "python",
+  "main": "src/main.py",
+  "min_cli_version": "0.5.0",
+  "compatible_platforms": ["windows", "macos", "linux"],
+  "parameters": [
+    {
+      "name": "broker_url",
+      "type": "string",
+      "description": "Celery broker URL (e.g., redis://localhost:6379/0)",
+      "required": true
+    },
+    {
+      "name": "task_name",
+      "type": "string",
+      "description": "Task function name",
+      "required": false
+    },
+    {
+      "name": "action",
+      "type": "string",
+      "description": "Action to perform: send_task, get_result, inspect_workers, revoke_task",
+      "required": true
+    }
+  ],
+  "commands": {
+    "send_task": "Send a task to the queue",
+    "get_result": "Get task result by ID",
+    "inspect_workers": "Get worker status information",
+    "revoke_task": "Cancel a scheduled/running task",
+    "apply_async": "Execute task asynchronously with options",
+    "delay": "Simple async task execution"
+  }
+}

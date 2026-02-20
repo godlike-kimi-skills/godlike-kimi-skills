@@ -1,0 +1,9 @@
+# Cron Skill Dependencies
+# Python >= 3.8
+
+# No external dependencies required
+# Uses Python's built-in `datetime` and `re` modules
+
+# Development dependencies (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0

@@ -1,0 +1,7 @@
+# GitHub Actions Skill 依赖
+PyGithub>=2.1.0
+PyYAML>=6.0
+
+# 开发依赖
+pytest>=7.0.0
+pytest-cov>=4.0.0

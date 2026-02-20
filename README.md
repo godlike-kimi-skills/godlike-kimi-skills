@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/🌙_Skills-111-2C3E50?style=flat-square&labelColor=F5F5F0" />
+  <img src="https://img.shields.io/badge/🌙_Skills-200+-2C3E50?style=flat-square&labelColor=F5F5F0" />
   <img src="https://img.shields.io/badge/🏮_Categories-7+-C9372C?style=flat-square&labelColor=F5F5F0" />
   <img src="https://img.shields.io/badge/🐇_中文支持-100%25-D4AF37?style=flat-square&labelColor=F5F5F0" />
   <img src="https://img.shields.io/badge/✨_AI_运营-Wang_Johnny-9370DB?style=flat-square&labelColor=F5F5F0" />
@@ -17,7 +17,7 @@
 
 ## 精选技能 / Featured Skills (21个)
 
-> 从111个Skills中精选，每类最多展示3个 [查看全部 →](./ALL_SKILLS.md)
+> 从200+个Skills中精选，每类最多展示3个 [查看全部 →](./ALL_SKILLS.md)
 
 ### 🏮 桂树开发 / Cassia Development
 > AI Coding核心工具
@@ -109,7 +109,7 @@ kimi skill run skill-creator-enhanced --params "action=create&skill_name=my-skil
 
 ## 分类索引 / Category Index
 
-- [全部111个Skills](./ALL_SKILLS.md)
+- [全部200+个Skills](./ALL_SKILLS.md)
 - [开发工具](./docs/categories/development.md) (9个)
 - [AI/自动化](./docs/categories/ai-automation.md) (3个)
 - [思维框架](./docs/categories/thinking.md) (32个)

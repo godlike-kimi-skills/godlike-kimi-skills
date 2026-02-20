@@ -1,0 +1,26 @@
+{
+    "network": "mainnet",
+    "rpc_url": "https://mainnet.infura.io/v3/YOUR_INFURA_API_KEY",
+    "private_key": "YOUR_PRIVATE_KEY_WITHOUT_0X_PREFIX",
+    "default_gas_limit": 21000,
+    "max_gas_price_gwei": 100,
+    "confirmations": 1,
+    "timeout": 120,
+    "middlewares": [
+        "geth_poa",
+        "http_retry"
+    ],
+    "contracts": {
+        "erc20": {
+            "address": "0xA0b86a33E6441e5f38E3E5f5c5E5E5c5E5E5c5E5",
+            "abi_path": "abis/erc20.json"
+        }
+    },
+    "wallets": [
+        {
+            "name": "primary",
+            "address": "0xYourAddress",
+            "private_key_env": "ETH_PRIVATE_KEY"
+        }
+    ]
+}

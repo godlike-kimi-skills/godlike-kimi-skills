@@ -1,0 +1,44 @@
+{
+  "name": "gitlab-ci-skill",
+  "category": "cicd",
+  "version": "1.0.0",
+  "description": "GitLab CI/CD管理 - 支持.gitlab-ci.yml编辑、Runner管理、Pipeline查看和变量管理",
+  "author": "Godlike-Kimi-Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "config": {
+    "token": {
+      "type": "string",
+      "required": true,
+      "description": "GitLab Personal Access Token"
+    },
+    "project": {
+      "type": "string",
+      "required": true,
+      "description": "Project path (group/project) or project ID"
+    },
+    "url": {
+      "type": "string",
+      "required": false,
+      "default": "https://gitlab.com",
+      "description": "GitLab URL"
+    },
+    "timeout": {
+      "type": "integer",
+      "required": false,
+      "default": 30,
+      "description": "Request timeout in seconds"
+    }
+  },
+  "capabilities": [
+    "ci_config_edit",
+    "runner_manage",
+    "pipeline_view",
+    "pipeline_trigger",
+    "variable_manage",
+    "schedule_manage"
+  ],
+  "tags": ["gitlab", "cicd", "devops", "ci", "runner"],
+  "dependencies": ["python-gitlab>=4.0.0", "PyYAML>=6.0"],
+  "python_version": ">=3.8"
+}

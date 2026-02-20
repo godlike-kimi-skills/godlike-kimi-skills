@@ -1,0 +1,28 @@
+{
+  "name": "jest-skill",
+  "version": "1.0.0",
+  "description": "Jest测试框架Skill。Use when writing tests, automating testing, or when user mentions 'Jest', 'unit testing', 'test coverage', 'mock testing', 'snapshot testing'.",
+  "category": "testing",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "entry": "main.py",
+  "keywords": [
+    "jest",
+    "testing",
+    "unit-test",
+    "mock",
+    "coverage",
+    "snapshot",
+    "javascript",
+    "typescript"
+  ],
+  "capabilities": [
+    "test-generation",
+    "mock-creation",
+    "coverage-analysis",
+    "snapshot-testing",
+    "test-optimization"
+  ],
+  "dependencies": [],
+  "min_kimi_version": "1.0.0"
+}

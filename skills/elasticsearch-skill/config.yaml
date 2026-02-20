@@ -1,0 +1,57 @@
+# Elasticsearch Skill Configuration
+
+elasticsearch:
+  # Connection settings
+  connection:
+    hosts:
+      - localhost:9200
+    timeout: 30
+    max_retries: 3
+    retry_on_timeout: true
+    
+  # SSL settings
+  ssl:
+    enabled: false
+    verify_certs: false
+    ca_certs: null
+    client_cert: null
+    client_key: null
+    
+  # Authentication
+  auth:
+    username: null
+    password: null
+    api_key: null
+
+# Default index settings
+index:
+  defaults:
+    number_of_shards: 1
+    number_of_replicas: 0
+    refresh_interval: "1s"
+    
+  # Dynamic mapping settings
+  mapping:
+    dynamic: strict
+    date_detection: true
+    numeric_detection: false
+
+# Search defaults
+search:
+  default_size: 10
+  max_size: 10000
+  default_timeout: "30s"
+  track_total_hits: true
+
+# Skill behavior
+skill:
+  auto_refresh_after_index: false
+  validate_mappings: true
+  default_serialization: json
+  compression_enabled: true
+
+# Performance tuning
+performance:
+  scroll_ttl: "1m"
+  bulk_chunk_size: 500
+  bulk_max_bytes: 20971520  # 20MB

@@ -2,7 +2,7 @@
   "name": "systematic-debugging",
   "title": "系统化调试",
   "title_en": "Systematic Debugging",
-  "description": "结构化的bug定位和修复方法论，支持多种编程语言。提供科学的调试流程、根因分析技术和修复建议生成。",
+  "description": "结构化的bug定位和修复方法论，支持多种编程语言和调试策略。Use when debugging code, analyzing errors, tracing issues, finding root causes, or when user mentions \"debug\", \"bug\", \"error\", \"trace\", \"fix\", \"issue\"",
   "description_en": "Structured bug localization and fixing methodology supporting multiple programming languages. Provides scientific debugging workflows, root cause analysis techniques, and fix suggestion generation.",
   "category": "development",
   "version": "1.0.0",

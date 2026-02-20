@@ -1,0 +1,9 @@
+# Azure CLI Skill Requirements
+# Install with: pip install -r requirements.txt
+
+azure-identity>=1.14.0
+azure-mgmt-compute>=30.0.0
+azure-mgmt-storage>=21.0.0
+azure-mgmt-sql>=4.0.0
+azure-mgmt-resource>=23.0.0
+azure-storage-blob>=12.18.0

@@ -1,0 +1,21 @@
+{
+  "default_kernel": "python3",
+  "default_language": "python",
+  "execution_timeout": 300,
+  "allow_errors": false,
+  "strip_output": false,
+  "clear_output": false,
+  "insert_timeout_cell": true,
+  "nbconvert_template": "lab",
+  "default_metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.9.0"
+    }
+  }
+}

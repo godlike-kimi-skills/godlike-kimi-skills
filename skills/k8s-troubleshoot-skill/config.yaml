@@ -1,0 +1,86 @@
+skill:
+  name: k8s-troubleshoot-skill
+  version: 1.0.0
+
+kubernetes:
+  # 默认命名空间
+  default_namespace: default
+  
+  # kubeconfig路径
+  kubeconfig_path: null
+  
+  # 默认上下文
+  default_context: null
+  
+  # API超时（秒）
+  api_timeout: 30
+
+# 诊断配置
+diagnostics:
+  # Pod诊断
+  pod:
+    # 检查的历史容器数量
+    max_container_history: 5
+    # 默认日志行数
+    default_log_lines: 100
+    # 最大日志行数
+    max_log_lines: 10000
+    # 检查的事件时间范围
+    event_since: 1h
+  
+  # 网络诊断
+  network:
+    # 连接超时（秒）
+    connect_timeout: 5
+    # 重试次数
+    retries: 3
+    # 调试镜像
+    debug_image: nicolaka/netshoot:latest
+    # DNS服务器
+    dns_servers:
+      - kube-dns.kube-system.svc.cluster.local
+      - 8.8.8.8
+  
+  # 资源分析
+  resource:
+    # 告警阈值（百分比）
+    warning_threshold: 80
+    critical_threshold: 95
+    # 检查的时间范围
+    metrics_since: 5m
+    # 最小请求资源比例（用于检测未设置资源限制）
+    min_resource_ratio: 0.1
+  
+  # 日志分析
+  logs:
+    # 错误关键词
+    error_patterns:
+      - ERROR
+      - FATAL
+      - CRITICAL
+      - Exception
+      - Traceback
+      - OutOfMemory
+      - Connection refused
+      - Permission denied
+      - No such file
+    # 默认时间范围
+    default_since: 1h
+    # 最大分析行数
+    max_lines: 10000
+
+# 输出配置
+output:
+  # 默认输出格式: table, json, yaml
+  format: table
+  # 是否启用彩色输出
+  color: true
+  # 详细模式
+  verbose: false
+
+# 修复建议
+recommendations:
+  # 是否显示修复建议
+  enabled: true
+  # 建议级别: info, warning, critical
+  min_level: info

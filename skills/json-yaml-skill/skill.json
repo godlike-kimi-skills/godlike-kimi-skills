@@ -1,0 +1,50 @@
+{
+  "name": "json-yaml-skill",
+  "version": "1.0.0",
+  "description": "JSON/YAML format processing tool with conversion, validation, query and beautification support",
+  "category": "utility",
+  "author": "Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "python_version": ">=3.8",
+  "dependencies": [
+    "pyyaml>=6.0",
+    "jsonpath-ng>=1.5.3"
+  ],
+  "keywords": [
+    "json",
+    "yaml",
+    "format",
+    "convert",
+    "validate",
+    "query",
+    "beautify"
+  ],
+  "commands": [
+    {
+      "name": "convert",
+      "description": "Convert between JSON and YAML formats"
+    },
+    {
+      "name": "validate",
+      "description": "Validate JSON/YAML syntax"
+    },
+    {
+      "name": "query",
+      "description": "Query data using JSONPath"
+    },
+    {
+      "name": "beautify",
+      "description": "Beautify and format output"
+    },
+    {
+      "name": "merge",
+      "description": "Merge multiple files"
+    },
+    {
+      "name": "diff",
+      "description": "Compare two files"
+    }
+  ]
+}

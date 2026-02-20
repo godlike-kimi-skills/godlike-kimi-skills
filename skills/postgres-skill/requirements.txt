@@ -1,0 +1,4 @@
+# PostgreSQL Skill Requirements
+# Install with: pip install -r requirements.txt
+
+psycopg2-binary>=2.9.0

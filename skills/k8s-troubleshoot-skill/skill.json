@@ -1,0 +1,34 @@
+{
+  "name": "k8s-troubleshoot-skill",
+  "version": "1.0.0",
+  "description": "Kubernetes故障排查工具，支持Pod诊断、网络排查、资源分析和集群健康检查。Use when troubleshooting Kubernetes issues, diagnosing pod failures, or when user mentions 'troubleshoot', 'debug', 'pod crash', 'network problem'。",
+  "category": "devops",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "language": "python",
+  "entry": "main.py",
+  "requirements": "requirements.txt",
+  "config": "config.yaml",
+  "tags": [
+    "kubernetes",
+    "troubleshooting",
+    "debugging",
+    "diagnostics",
+    "devops"
+  ],
+  "capabilities": [
+    "pod-diagnostics",
+    "network-troubleshooting",
+    "resource-analysis",
+    "storage-diagnostics",
+    "cluster-health-check",
+    "log-analysis"
+  ],
+  "dependencies": {
+    "kubectl": ">=1.24",
+    "kubernetes-cluster": ">=1.24"
+  },
+  "python_version": ">=3.8",
+  "documentation": "SKILL.md",
+  "examples": "example.md"
+}

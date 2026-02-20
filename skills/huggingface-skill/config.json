@@ -1,0 +1,16 @@
+{
+  "cache_dir": "./hf_cache",
+  "default_model": "bert-base-chinese",
+  "device": "auto",
+  "torch_dtype": "auto",
+  "trust_remote_code": false,
+  "use_auth_token": null,
+  "local_files_only": false,
+  "resume_download": true,
+  "proxies": null,
+  "timeout": 100.0,
+  "max_memory_per_gpu": null,
+  "offload_folder": "./offload",
+  "offload_state_dict": false,
+  "low_cpu_mem_usage": true
+}

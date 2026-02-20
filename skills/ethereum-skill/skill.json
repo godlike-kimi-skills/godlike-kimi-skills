@@ -1,0 +1,47 @@
+{
+    "name": "ethereum-skill",
+    "version": "1.0.0",
+    "description": "Comprehensive Ethereum blockchain development toolkit with smart contract interaction, transaction sending, and event listening. Use when developing blockchain applications, interacting with smart contracts, or when user mentions 'Ethereum', 'Web3', 'blockchain'.",
+    "category": "blockchain",
+    "author": "Godlike Kimi Skills",
+    "license": "MIT",
+    "entry_point": "main.py",
+    "main_file": "main.py",
+    "config_file": "config.json",
+    "python_version": ">=3.8",
+    "dependencies": [
+        "web3>=6.0.0",
+        "eth-account>=0.8.0",
+        "eth-utils>=2.0.0",
+        "eth-abi>=4.0.0",
+        "hexbytes>=0.3.0"
+    ],
+    "keywords": [
+        "ethereum",
+        "blockchain",
+        "smart-contract",
+        "web3",
+        "defi",
+        "crypto",
+        "transaction",
+        "solidity"
+    ],
+    "capabilities": [
+        "smart-contract-interaction",
+        "transaction-sending",
+        "event-listening",
+        "account-management",
+        "gas-estimation",
+        "ens-resolution"
+    ],
+    "triggers": [
+        "ethereum",
+        "web3",
+        "blockchain",
+        "smart contract",
+        "solidity",
+        "eth",
+        "defi",
+        "dapp"
+    ]
+}

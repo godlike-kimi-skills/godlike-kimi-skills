@@ -1,0 +1,18 @@
+{
+  "name": "postman-collection-skill",
+  "version": "1.0.0",
+  "category": "documentation",
+  "description": "Postman集合管理工具。Use when documenting APIs, generating documentation, or when user mentions 'OpenAPI', 'Swagger', 'API docs'.",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry": "main.py",
+  "keywords": ["postman", "collection", "api", "testing", "http", "rest"],
+  "triggers": ["postman", "collection", "api test", "http request", "export postman"],
+  "dependencies": ["requests"],
+  "min_kimi_version": "1.0.0",
+  "config": {
+    "default_schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "include_responses": true,
+    "auto_generate_tests": false
+  }
+}

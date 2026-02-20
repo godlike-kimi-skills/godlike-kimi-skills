@@ -1,0 +1,55 @@
+{
+  "name": "android-skill",
+  "version": "1.0.0",
+  "category": "mobile",
+  "description": "Android native development skill with Kotlin/Java code generation, Gradle configuration, and Manifest management",
+  "author": "Kimi",
+  "license": "MIT",
+  "keywords": ["android", "kotlin", "java", "gradle", "jetpack-compose", "mobile"],
+  "entry": "main.py",
+  "dependencies": {
+    "python": ">=3.8",
+    "packages": ["jinja2", "pyyaml"]
+  },
+  "commands": [
+    {
+      "name": "generate:activity",
+      "description": "Generate Activity class"
+    },
+    {
+      "name": "generate:fragment",
+      "description": "Generate Fragment class"
+    },
+    {
+      "name": "generate:viewmodel",
+      "description": "Generate ViewModel"
+    },
+    {
+      "name": "setup:gradle",
+      "description": "Setup Gradle configuration"
+    },
+    {
+      "name": "config:manifest",
+      "description": "Configure AndroidManifest"
+    },
+    {
+      "name": "setup:room",
+      "description": "Setup Room database"
+    },
+    {
+      "name": "setup:hilt",
+      "description": "Setup Hilt DI"
+    }
+  ],
+  "templates": [
+    "activity",
+    "fragment",
+    "viewmodel",
+    "recyclerview_adapter",
+    "kotlin_data_class",
+    "gradle_build",
+    "android_manifest",
+    "room_entity",
+    "retrofit_service"
+  ]
+}

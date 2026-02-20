@@ -1,0 +1,19 @@
+{
+  "name": "nmap-skill",
+  "version": "1.0.0",
+  "category": "network",
+  "description": "Nmap port scanning tool. Use when scanning networks, managing remote servers, or when user mentions 'SSH', 'DNS', 'network'. Supports port scanning, service detection, and OS fingerprinting.",
+  "author": "Kimi Skills Team",
+  "license": "MIT",
+  "entry": "main.py",
+  "main_function": "scan",
+  "triggers": ["nmap", "port scan", "network scan", "service detection", "os fingerprinting"],
+  "supported_platforms": ["windows", "linux", "macos"],
+  "dependencies": ["python-nmap"],
+  "min_python_version": "3.8",
+  "config": {
+    "default_ports": "1-1000",
+    "timeout": 300,
+    "max_retries": 2
+  }
+}

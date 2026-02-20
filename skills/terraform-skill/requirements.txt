@@ -1,0 +1,5 @@
+# Terraform Skill Requirements
+# Install with: pip install -r requirements.txt
+
+pyhcl>=0.4.4
+python-terraform>=0.10.1

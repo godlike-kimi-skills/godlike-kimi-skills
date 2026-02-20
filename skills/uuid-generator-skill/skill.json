@@ -1,0 +1,55 @@
+{
+  "name": "uuid-generator-skill",
+  "version": "1.0.0",
+  "description": "UUID and identifier generator supporting multiple UUID versions, random strings, short IDs, NanoID and CUID",
+  "category": "utility",
+  "author": "Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "python_version": ">=3.8",
+  "dependencies": [],
+  "keywords": [
+    "uuid",
+    "guid",
+    "identifier",
+    "random",
+    "nanoid",
+    "cuid",
+    "short id"
+  ],
+  "commands": [
+    {
+      "name": "uuid",
+      "description": "Generate UUID"
+    },
+    {
+      "name": "short",
+      "description": "Generate short ID"
+    },
+    {
+      "name": "random",
+      "description": "Generate random string"
+    },
+    {
+      "name": "nanoid",
+      "description": "Generate NanoID"
+    },
+    {
+      "name": "cuid",
+      "description": "Generate CUID"
+    },
+    {
+      "name": "batch",
+      "description": "Generate batch of IDs"
+    },
+    {
+      "name": "validate",
+      "description": "Validate UUID format"
+    },
+    {
+      "name": "parse",
+      "description": "Parse UUID information"
+    }
+  ]
+}

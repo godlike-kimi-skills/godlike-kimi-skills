@@ -1,0 +1,38 @@
+{
+  "name": "black-isort-skill",
+  "version": "1.0.0",
+  "description": "Python代码格式化 - Black格式化、isort导入排序、配置管理",
+  "category": "python",
+  "author": "godlike-kimi-skills",
+  "tags": ["black", "isort", "formatting", "linting", "python", "code-style"],
+  "entry": "main.py",
+  "main_function": "main",
+  "requirements": [
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "click>=8.0.0"
+  ],
+  "python_version": ">=3.8",
+  "config_schema": {
+    "line_length": {
+      "type": "integer",
+      "minimum": 50,
+      "maximum": 200,
+      "default": 88
+    },
+    "target_version": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": ["py38", "py39", "py310", "py311"]
+    },
+    "skip_string_normalization": {
+      "type": "boolean",
+      "default": false
+    },
+    "profile": {
+      "type": "string",
+      "enum": ["black", "django", "pycharm", "google", "open_stack", "plone"],
+      "default": "black"
+    }
+  }
+}

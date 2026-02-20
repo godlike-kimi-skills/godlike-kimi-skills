@@ -1,0 +1,43 @@
+{
+  "name": "next-best-practices",
+  "version": "1.0.0",
+  "description": "Next.js development best practices checker and advisor. Validates App Router patterns, Server Components, performance optimizations, SEO, caching strategies, and code patterns.",
+  "category": "development",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry": "main.py",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "description": "Action to perform: check, fix, suggest, analyze",
+      "enum": ["check", "fix", "suggest", "analyze"]
+    },
+    "file_path": {
+      "type": "string",
+      "required": false,
+      "description": "Path to the file or directory to check"
+    },
+    "check_type": {
+      "type": "string",
+      "required": false,
+      "description": "Type of check to perform",
+      "enum": ["all", "structure", "performance", "seo", "caching", "app-router", "code-patterns"],
+      "default": "all"
+    },
+    "output_format": {
+      "type": "string",
+      "required": false,
+      "description": "Output format for results",
+      "enum": ["json", "markdown", "console"],
+      "default": "console"
+    },
+    "severity": {
+      "type": "string",
+      "required": false,
+      "description": "Minimum severity level to report",
+      "enum": ["error", "warning", "info", "suggestion"],
+      "default": "warning"
+    }
+  }
+}

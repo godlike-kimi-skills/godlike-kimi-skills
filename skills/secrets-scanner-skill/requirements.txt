@@ -1,0 +1,15 @@
+# Secrets Scanner Skill Requirements
+# Python 3.8+
+
+# Core dependencies
+gitpython>=3.1.0
+requests>=2.28.0
+colorama>=0.4.6
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional enhancements
+pyyaml>=6.0  # For YAML config parsing
+trich>=22.0  # For rich terminal output

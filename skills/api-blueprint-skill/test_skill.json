@@ -1,0 +1,57 @@
+{
+  "test_name": "api-blueprint-skill-tests",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "name": "test_blueprint_creation",
+      "description": "Test API Blueprint document creation",
+      "command": "python main.py create --name 'Test API' --host 'https://api.test.com'",
+      "expected_output_contains": ["success", "blueprint", "# Test API"]
+    },
+    {
+      "name": "test_openapi_conversion",
+      "description": "Test OpenAPI to API Blueprint conversion",
+      "input_file": "examples/sample-openapi.json",
+      "command": "python main.py convert --input examples/sample-openapi.json --output api.apib",
+      "expected_output_contains": ["success", "output_file", ".apib"]
+    },
+    {
+      "name": "test_mock_generation",
+      "description": "Test mock server generation",
+      "input_file": "examples/sample.apib",
+      "command": "python main.py mock --input examples/sample.apib --output mock_server.py --framework flask",
+      "expected_output_contains": ["success", "output_file", ".py"]
+    },
+    {
+      "name": "test_validation",
+      "description": "Test blueprint validation",
+      "input_file": "examples/sample.apib",
+      "command": "python main.py validate --input examples/sample.apib",
+      "expected_output_contains": ["valid", "errors"]
+    }
+  ],
+  "mock_files": {
+    "examples/sample-openapi.json": {
+      "openapi": "3.0.3",
+      "info": {
+        "title": "Sample API",
+        "version": "1.0.0"
+      },
+      "servers": [{"url": "https://api.example.com"}],
+      "paths": {
+        "/items": {
+          "get": {
+            "summary": "List items",
+            "tags": ["items"],
+            "responses": {
+              "200": {
+                "description": "List of items"
+              }
+            }
+          }
+        }
+      }
+    },
+    "examples/sample.apib": "FORMAT: 1A\n# Sample API\n\n## Items [/items]\n\n### List Items [GET /items]\n\n+ Response 200\n\n        [\n            {\"id\": 1, \"name\": \"Item 1\"}\n        ]"
+  }
+}

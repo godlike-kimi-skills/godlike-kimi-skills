@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+
+# Locust
+__pycache__/
+*.pyc
+locust_stats.csv
+locust_report.html
+
+# k6
+k6_results.json
+k6_summary.json
+*.log
+
+# JMeter
+jmeter.log
+*.jtl
+*.jmx.bak
+
+# Reports
+reports/
+results/
+*.html
+*.csv
+*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.venv/
+venv/
+env/

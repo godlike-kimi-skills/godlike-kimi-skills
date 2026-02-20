@@ -1,0 +1,12 @@
+{
+  "name": "nginx-skill",
+  "category": "server",
+  "version": "1.0.0",
+  "description": "Nginx configuration management for virtual hosts, SSL, and load balancing",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "keywords": ["nginx", "web-server", "ssl", "load-balancer", "reverse-proxy"],
+  "entry_point": "scripts/main.py",
+  "dependencies": ["pynginxconfig", "jinja2"],
+  "min_python_version": "3.8"
+}

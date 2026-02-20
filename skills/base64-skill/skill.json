@@ -1,0 +1,20 @@
+{
+  "name": "base64-skill",
+  "version": "1.0.0",
+  "category": "utility",
+  "description": "Base64 encoding/decoding utility supporting text, images, files, and URL-safe encoding",
+  "author": "godlike-kimi-skills",
+  "entry_point": "main.py",
+  "python_version": ">=3.8",
+  "tags": [
+    "base64",
+    "encoding",
+    "decoding",
+    "image-conversion",
+    "url-safe",
+    "utility"
+  ],
+  "dependencies": [
+    "pillow>=10.0.0"
+  ]
+}

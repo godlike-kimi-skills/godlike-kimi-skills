@@ -1,0 +1,13 @@
+{
+  "name": "tailwind-css-skill",
+  "category": "frontend",
+  "version": "1.0.0",
+  "description": "Tailwind CSS样式生成与管理工具。支持类名生成、响应式设计、自定义配置和智能提示。Use when developing frontend applications, styling components, or when user mentions 'Tailwind', 'CSS', 'React', 'Vue'.",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "triggers": ["tailwind", "css", "react", "vue", "styling", "component style"],
+  "keywords": ["tailwind", "css", "frontend", "styling", "responsive", "utility-class"],
+  "dependencies": ["colorama>=0.4.4"],
+  "python_version": ">=3.8"
+}

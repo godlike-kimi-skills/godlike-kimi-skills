@@ -1,0 +1,14 @@
+{
+  "name": "aws-cli-skill",
+  "version": "1.0.0",
+  "category": "cloud",
+  "description": "AWS CLI操作助手，支持EC2/S3/RDS/DynamoDB操作和资源查询。Use when managing cloud resources, deploying infrastructure, or when user mentions 'AWS', 'EC2', 'S3', 'RDS', 'DynamoDB'",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry": "main.py",
+  "language": "python",
+  "requirements": ["boto3>=1.28.0", "botocore>=1.31.0"],
+  "keywords": ["aws", "cloud", "ec2", "s3", "rds", "dynamodb", "infrastructure"],
+  "supported_platforms": ["windows", "linux", "macos"],
+  "env_vars": ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_DEFAULT_REGION"]
+}

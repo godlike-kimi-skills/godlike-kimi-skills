@@ -1,0 +1,18 @@
+{
+  "name": "api-blueprint-skill",
+  "version": "1.0.0",
+  "category": "documentation",
+  "description": "API Blueprint文档工具。Use when documenting APIs, generating documentation, or when user mentions 'OpenAPI', 'Swagger', 'API docs'.",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry": "main.py",
+  "keywords": ["api-blueprint", "blueprint", "api", "documentation", "mock", "aglio"],
+  "triggers": ["api blueprint", "blueprint", "apiary", "aglio", "mock server"],
+  "dependencies": ["pyyaml"],
+  "min_kimi_version": "1.0.0",
+  "config": {
+    "default_format": "apib",
+    "include_mock": true,
+    "validate_on_build": true
+  }
+}

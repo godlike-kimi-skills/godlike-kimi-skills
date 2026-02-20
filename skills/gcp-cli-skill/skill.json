@@ -1,0 +1,14 @@
+{
+  "name": "gcp-cli-skill",
+  "version": "1.0.0",
+  "category": "cloud",
+  "description": "GCP云服务操作助手，支持Compute/Storage/BigQuery操作。Use when managing cloud resources, deploying infrastructure, or when user mentions 'GCP', 'Google Cloud', 'Compute', 'Storage', 'BigQuery'",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry": "main.py",
+  "language": "python",
+  "requirements": ["google-cloud-compute>=1.14.0", "google-cloud-storage>=2.10.0", "google-cloud-bigquery>=3.11.0"],
+  "keywords": ["gcp", "google-cloud", "compute", "storage", "bigquery", "infrastructure"],
+  "supported_platforms": ["windows", "linux", "macos"],
+  "env_vars": ["GOOGLE_APPLICATION_CREDENTIALS", "GOOGLE_CLOUD_PROJECT", "GCP_PROJECT_ID"]
+}

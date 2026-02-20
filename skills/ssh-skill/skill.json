@@ -1,0 +1,20 @@
+{
+  "name": "ssh-skill",
+  "version": "1.0.0",
+  "category": "network",
+  "description": "SSH remote management tool. Use when scanning networks, managing remote servers, or when user mentions 'SSH', 'DNS', 'network'. Supports remote command execution, file transfer, and key management.",
+  "author": "Kimi Skills Team",
+  "license": "MIT",
+  "entry": "main.py",
+  "main_function": "ssh_command",
+  "triggers": ["ssh", "remote", "scp", "sftp", "key management", "remote execution"],
+  "supported_platforms": ["windows", "linux", "macos"],
+  "dependencies": ["paramiko", "scp"],
+  "min_python_version": "3.8",
+  "config": {
+    "default_port": 22,
+    "default_timeout": 30,
+    "max_connections": 10,
+    "key_types": ["rsa", "ed25519", "ecdsa"]
+  }
+}

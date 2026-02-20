@@ -1,0 +1,250 @@
+FORMAT: 1A
+
+VERSION: 1.0.0
+AUTHOR: API Team
+
+# Sample Pet Store API
+
+This is a sample API for managing pets in a pet store.
+
+HOST: https://petstore.example.com
+
+# Group Pets
+
+Resources related to pets in the pet store.
+
+## Pets Collection [/pets]
+
+### List All Pets [GET /pets]
+
+Retrieve a list of all pets.
+
++ Parameters
+    + limit (number, optional) - Maximum number of results to return
+        + Default: 20
+    + status (string, optional) - Filter by pet status
+        + Members
+            + `available`
+            + `pending`
+            + `sold`
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "name": "Fluffy",
+                    "type": "cat",
+                    "status": "available"
+                },
+                {
+                    "id": 2,
+                    "name": "Rex",
+                    "type": "dog",
+                    "status": "sold"
+                }
+            ]
+
+### Create a New Pet [POST /pets]
+
+Create a new pet in the store.
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "name": "Buddy",
+                "type": "dog",
+                "age": 3
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /pets/3
+
+    + Body
+
+            {
+                "id": 3,
+                "name": "Buddy",
+                "type": "dog",
+                "age": 3,
+                "status": "available"
+            }
+
++ Response 400 (application/json)
+
+    Invalid input data
+
+    + Body
+
+            {
+                "error": "Invalid pet data",
+                "message": "Name is required"
+            }
+
+## Pet [/pets/{id}]
+
+A single Pet object with all its details.
+
++ Parameters
+    + id: 1 (number, required) - The unique ID of the pet
+
+### Get a Pet [GET]
+
+Retrieve a single pet by ID.
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Fluffy",
+                "type": "cat",
+                "age": 2,
+                "status": "available",
+                "created_at": "2024-01-15T10:30:00Z"
+            }
+
++ Response 404 (application/json)
+
+    Pet not found
+
+    + Body
+
+            {
+                "error": "Not Found",
+                "message": "Pet with ID 1 not found"
+            }
+
+### Update a Pet [PUT]
+
+Update an existing pet.
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "name": "Fluffy Jr.",
+                "age": 3
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Fluffy Jr.",
+                "type": "cat",
+                "age": 3,
+                "status": "available"
+            }
+
++ Response 404 (application/json)
+
+    Pet not found
+
+### Delete a Pet [DELETE]
+
+Remove a pet from the store.
+
++ Response 204
+
++ Response 404 (application/json)
+
+    Pet not found
+
+# Group Users
+
+User management operations.
+
+## Users Collection [/users]
+
+### List Users [GET /users]
+
+Get a list of all users.
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "id": 1,
+                    "name": "John Doe",
+                    "email": "john@example.com"
+                },
+                {
+                    "id": 2,
+                    "name": "Jane Smith",
+                    "email": "jane@example.com"
+                }
+            ]
+
+### Create User [POST /users]
+
+Register a new user.
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "name": "Bob Wilson",
+                "email": "bob@example.com",
+                "password": "securepassword123"
+            }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": 3,
+                "name": "Bob Wilson",
+                "email": "bob@example.com",
+                "created_at": "2024-01-20T08:00:00Z"
+            }
+
++ Response 409 (application/json)
+
+    Email already exists
+
+    + Body
+
+            {
+                "error": "Conflict",
+                "message": "Email already registered"
+            }
+
+## User [/users/{id}]
+
++ Parameters
+    + id (number, required) - User ID
+
+### Get User [GET]
+
+Get user details.
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "John Doe",
+                "email": "john@example.com",
+                "role": "customer"
+            }
+
++ Response 404
+
+    User not found

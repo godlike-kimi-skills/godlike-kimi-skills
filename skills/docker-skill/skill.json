@@ -1,0 +1,34 @@
+{
+  "name": "docker-skill",
+  "version": "1.0.0",
+  "description": "Docker容器管理工具，支持容器启停、镜像管理、日志查看和Docker Compose编排操作。Use when managing Docker containers, deploying containers, or when user mentions 'docker', 'container', 'docker-compose', '镜像'。",
+  "category": "devops",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "language": "python",
+  "entry": "main.py",
+  "requirements": "requirements.txt",
+  "config": "config.yaml",
+  "tags": [
+    "docker",
+    "container",
+    "devops",
+    "orchestration",
+    "microservices"
+  ],
+  "capabilities": [
+    "container-management",
+    "image-management",
+    "compose-orchestration",
+    "log-viewing",
+    "network-management",
+    "volume-management"
+  ],
+  "dependencies": {
+    "docker": ">=20.10",
+    "docker-compose": ">=2.0"
+  },
+  "python_version": ">=3.8",
+  "documentation": "SKILL.md",
+  "examples": "example.md"
+}

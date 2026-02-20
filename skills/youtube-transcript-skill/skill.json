@@ -1,0 +1,16 @@
+{
+  "name": "youtube-transcript-skill",
+  "version": "1.0.0",
+  "category": "media",
+  "description": "YouTube视频转录提取工具，支持字幕提取、翻译和摘要生成",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "tags": ["youtube", "transcript", "video", "subtitle", "translation"],
+  "requirements": ["youtube-transcript-api", "requests"],
+  "config": {
+    "default_language": "zh",
+    "proxy": null
+  }
+}

@@ -3,7 +3,7 @@
   "name": "docx-skill",
   "version": "1.0.0",
   "title": "Word文档处理器",
-  "description": "创建、编辑、格式化Word文档(.docx)，支持模板、表格、图片插入和文档合并",
+  "description": "创建、编辑、格式化Word文档(.docx)，支持模板、表格、图片插入和文档合并。Use when working with Word documents, creating reports, generating documents from templates, merging docs, or when user mentions \"docx\", \"Word\", \"document\", \"report\", \"template\"",
   "author": "Godlike Kimi Skills",
   "license": "MIT",
   "repository": "https://github.com/godlike-kimi-skills/docx-skill",

@@ -1,0 +1,46 @@
+{
+    "name": "solana-skill",
+    "version": "1.0.0",
+    "description": "Comprehensive Solana blockchain development toolkit with program interaction, transaction building, and account management. Use when developing blockchain applications, interacting with smart contracts, or when user mentions 'Ethereum', 'Web3', 'blockchain'.",
+    "category": "blockchain",
+    "author": "Godlike Kimi Skills",
+    "license": "MIT",
+    "entry_point": "main.py",
+    "main_file": "main.py",
+    "config_file": "config.json",
+    "python_version": ">=3.8",
+    "dependencies": [
+        "solana>=0.30.0",
+        "solders>=0.18.0",
+        "base58>=2.1.0",
+        "construct>=2.10.0",
+        "typing-extensions>=4.0.0"
+    ],
+    "keywords": [
+        "solana",
+        "blockchain",
+        "smart-contract",
+        "spl-token",
+        "defi",
+        "crypto",
+        "transaction",
+        "rust"
+    ],
+    "capabilities": [
+        "program-interaction",
+        "transaction-building",
+        "account-management",
+        "spl-token-transfer",
+        "rpc-query",
+        "keypair-management"
+    ],
+    "triggers": [
+        "solana",
+        "sol",
+        "blockchain",
+        "smart contract",
+        "spl token",
+        "defi",
+        "web3"
+    ]
+}

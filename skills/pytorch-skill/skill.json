@@ -1,0 +1,10 @@
+{
+  "name": "pytorch-skill",
+  "category": "ai-ml",
+  "version": "1.0.0",
+  "description": "PyTorch深度学习工具，支持模型定义、训练循环和GPU管理",
+  "author": "godlike-kimi",
+  "dependencies": ["torch", "torchvision", "numpy", "matplotlib", "tqdm"],
+  "entry_point": "main.py",
+  "python_version": ">=3.8"
+}

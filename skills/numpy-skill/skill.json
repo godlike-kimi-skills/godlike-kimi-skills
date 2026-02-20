@@ -1,0 +1,12 @@
+{
+  "name": "numpy-skill",
+  "version": "1.0.0",
+  "category": "data-science",
+  "description": "NumPy numerical computing skill for array operations, mathematical operations, and random number generation. Use when analyzing data, creating visualizations, or when user mentions 'numpy', 'array operations', 'numerical computing', 'linear algebra'.",
+  "author": "Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "keywords": ["numpy", "array", "matrix", "linear algebra", "mathematical operations", "random"],
+  "dependencies": ["numpy", "scipy"],
+  "min_kimi_version": "1.0.0"
+}

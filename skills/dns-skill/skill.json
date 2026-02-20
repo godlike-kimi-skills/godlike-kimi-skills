@@ -1,0 +1,19 @@
+{
+  "name": "dns-skill",
+  "version": "1.0.0",
+  "category": "network",
+  "description": "DNS query and resolution tool. Use when scanning networks, managing remote servers, or when user mentions 'SSH', 'DNS', 'network'. Supports DNS resolution, record queries, and reverse DNS lookups.",
+  "author": "Kimi Skills Team",
+  "license": "MIT",
+  "entry": "main.py",
+  "main_function": "query",
+  "triggers": ["dns", "resolve", "lookup", "nameserver", "mx record", "txt record", "reverse dns"],
+  "supported_platforms": ["windows", "linux", "macos"],
+  "dependencies": ["dnspython"],
+  "min_python_version": "3.8",
+  "config": {
+    "default_nameserver": "8.8.8.8",
+    "default_timeout": 5,
+    "record_types": ["A", "AAAA", "MX", "NS", "TXT", "CNAME", "SOA", "PTR"]
+  }
+}

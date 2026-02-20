@@ -1,0 +1,13 @@
+{
+  "name": "typescript-skill",
+  "category": "frontend",
+  "version": "1.0.0",
+  "description": "TypeScript类型生成和检查工具。支持接口生成、类型推导、配置优化和类型安全验证。Use when developing frontend applications, working with TypeScript, or when user mentions 'TypeScript', 'types', 'interface', 'React', 'Vue'.",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "triggers": ["typescript", "types", "interface", "react", "vue", "frontend"],
+  "keywords": ["typescript", "types", "interface", "generics", "type-checking", "frontend"],
+  "dependencies": ["colorama>=0.4.4"],
+  "python_version": ">=3.8"
+}

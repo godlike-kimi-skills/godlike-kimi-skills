@@ -1,0 +1,13 @@
+{
+  "default_encoding": "utf-8",
+  "max_rows_display": 100,
+  "max_columns_display": 50,
+  "float_format": "%.4f",
+  "display_width": 120,
+  "chunk_size": 10000,
+  "cache_enabled": true,
+  "cache_dir": "./cache",
+  "log_level": "INFO",
+  "backup_enabled": true,
+  "backup_dir": "./backups"
+}

@@ -1,0 +1,236 @@
+version: '3.8'
+
+# ============================================
+# 负载测试基础设施
+# ============================================
+
+services:
+  # InfluxDB - 时序数据库存储测试结果
+  influxdb:
+    image: influxdb:1.8
+    container_name: loadtest-influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=k6
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin123
+      - INFLUXDB_HTTP_AUTH_ENABLED=true
+    volumes:
+      - influxdb-data:/var/lib/influxdb
+    networks:
+      - loadtest-network
+
+  # Grafana - 可视化仪表板
+  grafana:
+    image: grafana/grafana:latest
+    container_name: loadtest-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - influxdb
+    networks:
+      - loadtest-network
+
+  # Prometheus - 备选监控方案
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: loadtest-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - loadtest-network
+
+  # Locust Master
+  locust-master:
+    image: locustio/locust:latest
+    container_name: loadtest-locust-master
+    ports:
+      - "8089:8089"
+      - "5557:5557"
+      - "5558:5558"
+    volumes:
+      - ./locust:/mnt/locust
+    command: >
+      -f /mnt/locust/locustfile.py
+      --master
+      --master-bind-host=0.0.0.0
+      --master-bind-port=5557
+      --host=http://target-api:8000
+      --headless
+      -u 1000
+      -r 50
+      -t 10m
+      --csv=/mnt/locust/results/locust
+    networks:
+      - loadtest-network
+    depends_on:
+      - influxdb
+      - grafana
+
+  # Locust Workers (Scale as needed)
+  locust-worker-1:
+    image: locustio/locust:latest
+    container_name: loadtest-locust-worker-1
+    volumes:
+      - ./locust:/mnt/locust
+    command: >
+      -f /mnt/locust/locustfile.py
+      --worker
+      --master-host=locust-master
+      --master-port=5557
+    networks:
+      - loadtest-network
+    depends_on:
+      - locust-master
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+
+  locust-worker-2:
+    image: locustio/locust:latest
+    container_name: loadtest-locust-worker-2
+    volumes:
+      - ./locust:/mnt/locust
+    command: >
+      -f /mnt/locust/locustfile.py
+      --worker
+      --master-host=locust-master
+      --master-port=5557
+    networks:
+      - loadtest-network
+    depends_on:
+      - locust-master
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+
+  # k6 Runner
+  k6:
+    image: grafana/k6:latest
+    container_name: loadtest-k6
+    volumes:
+      - ./k6:/scripts
+      - ./results:/results
+    command: >
+      run
+      --out influxdb=http://admin:admin123@influxdb:8086/k6
+      --summary-export=/results/k6-summary.json
+      /scripts/script.js
+    networks:
+      - loadtest-network
+    depends_on:
+      - influxdb
+    environment:
+      - K6_OUT=influxdb=http://influxdb:8086/k6
+
+  # 目标API（示例，替换为实际服务）
+  target-api:
+    image: kennethreitz/httpbin
+    container_name: loadtest-target
+    ports:
+      - "8000:80"
+    networks:
+      - loadtest-network
+
+  # Redis - 用于分布式锁和计数器
+  redis:
+    image: redis:7-alpine
+    container_name: loadtest-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - loadtest-network
+
+  # 结果收集器
+  result-collector:
+    image: alpine:latest
+    container_name: loadtest-collector
+    volumes:
+      - ./results:/results
+      - ./scripts:/scripts
+    command: >
+      sh -c "
+        echo 'Waiting for tests to complete...' &&
+        sleep 600 &&
+        echo 'Collecting results...' &&
+        ls -la /results/
+      "
+    networks:
+      - loadtest-network
+    depends_on:
+      - locust-master
+      - k6
+
+# ============================================
+# 网络配置
+# ============================================
+
+networks:
+  loadtest-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# ============================================
+# 数据卷
+# ============================================
+
+volumes:
+  influxdb-data:
+    driver: local
+  grafana-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  redis-data:
+    driver: local
+
+# ============================================
+# 使用说明
+# ============================================
+
+# 1. 启动所有服务:
+#    docker-compose up -d
+
+# 2. 查看Locust Web界面:
+#    http://localhost:8089
+
+# 3. 查看Grafana仪表板:
+#    http://localhost:3000 (admin/admin123)
+
+# 4. 扩展Locust Workers:
+#    docker-compose up -d --scale locust-worker-1=5
+
+# 5. 只运行k6:
+#    docker-compose up -d k6
+
+# 6. 查看实时结果:
+#    docker-compose logs -f k6
+
+# 7. 停止所有服务:
+#    docker-compose down
+
+# 8. 清理数据卷:
+#    docker-compose down -v

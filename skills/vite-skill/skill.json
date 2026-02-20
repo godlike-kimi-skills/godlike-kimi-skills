@@ -1,0 +1,13 @@
+{
+  "name": "vite-skill",
+  "category": "frontend",
+  "version": "1.0.0",
+  "description": "Vite构建工具管理工具。支持项目创建、配置优化、插件管理和构建分析。Use when developing frontend applications, building projects, or when user mentions 'Vite', 'build', 'bundler', 'React', 'Vue'.",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "triggers": ["vite", "build", "bundler", "react", "vue", "frontend"],
+  "keywords": ["vite", "build", "bundler", "esm", "hmr", "frontend", "rollup"],
+  "dependencies": ["colorama>=0.4.4"],
+  "python_version": ">=3.8"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "azure-cli-skill",
+  "version": "1.0.0",
+  "category": "cloud",
+  "description": "Azure云服务操作助手，支持VM/Storage/SQL服务管理。Use when managing cloud resources, deploying infrastructure, or when user mentions 'Azure', 'VM', 'Storage', 'SQL Database'",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry": "main.py",
+  "language": "python",
+  "requirements": ["azure-identity>=1.14.0", "azure-mgmt-compute>=30.0.0", "azure-mgmt-storage>=21.0.0", "azure-mgmt-sql>=4.0.0", "azure-mgmt-resource>=23.0.0"],
+  "keywords": ["azure", "cloud", "vm", "storage", "sql", "infrastructure", "microsoft"],
+  "supported_platforms": ["windows", "linux", "macos"],
+  "env_vars": ["AZURE_CLIENT_ID", "AZURE_CLIENT_SECRET", "AZURE_TENANT_ID", "AZURE_SUBSCRIPTION_ID"]
+}

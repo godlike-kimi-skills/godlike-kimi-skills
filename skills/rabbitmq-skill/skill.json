@@ -1,0 +1,51 @@
+{
+  "schema_version": "v1",
+  "name": "rabbitmq-skill",
+  "version": "1.0.0",
+  "title": "RabbitMQ Message Queue",
+  "description": "Professional RabbitMQ message queue operations including queue management, exchanges, routing, bindings, RPC patterns, and dead letter handling. Use when working with RabbitMQ brokers, implementing message routing patterns, building microservices communication, or setting up reliable message delivery systems.",
+  "category": "messaging",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "homepage": "https://github.com/godlike-kimi-skills/rabbitmq-skill",
+  "repository": "https://github.com/godlike-kimi-skills/rabbitmq-skill.git",
+  "keywords": ["rabbitmq", "amqp", "messaging", "queue", "exchange", "routing", "rpc"],
+  "language": "python",
+  "main": "src/main.py",
+  "min_cli_version": "0.5.0",
+  "compatible_platforms": ["windows", "macos", "linux"],
+  "parameters": [
+    {
+      "name": "host",
+      "type": "string",
+      "description": "RabbitMQ host address",
+      "required": true
+    },
+    {
+      "name": "port",
+      "type": "integer",
+      "description": "RabbitMQ port (default: 5672)",
+      "required": false
+    },
+    {
+      "name": "queue",
+      "type": "string",
+      "description": "Queue name",
+      "required": false
+    },
+    {
+      "name": "action",
+      "type": "string",
+      "description": "Action to perform: declare_queue, delete_queue, publish, consume, declare_exchange, bind",
+      "required": true
+    }
+  ],
+  "commands": {
+    "declare_queue": "Declare a new queue with optional parameters",
+    "delete_queue": "Delete an existing queue",
+    "publish": "Publish a message to an exchange or queue",
+    "consume": "Consume messages from a queue",
+    "declare_exchange": "Declare an exchange with specified type",
+    "bind": "Create binding between queue and exchange"
+  }
+}

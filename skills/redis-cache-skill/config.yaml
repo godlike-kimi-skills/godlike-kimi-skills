@@ -1,0 +1,56 @@
+# Redis Cache Skill Configuration
+
+redis:
+  # Connection settings
+  connection:
+    host: localhost
+    port: 6379
+    db: 0
+    socket_timeout: 5
+    socket_connect_timeout: 5
+    retry_on_timeout: true
+    max_connections: 50
+    
+  # Memory management
+  memory:
+    max_memory: 256mb
+    max_memory_policy: allkeys-lru
+    
+  # Default TTL settings (seconds)
+  ttl:
+    default: 300
+    session: 3600
+    api_response: 60
+    user_data: 1800
+    
+  # Performance settings
+  performance:
+    tcp_keepalive: true
+    health_check_interval: 30
+
+# Cache strategy defaults
+strategy:
+  default: LRU
+  allowed_strategies:
+    - LRU
+    - LFU
+    - FIFO
+    - TTL
+    - RANDOM
+
+# Skill behavior settings
+skill:
+  auto_reconnect: true
+  reconnect_attempts: 3
+  default_serialization: json
+  compression_enabled: false
+  compression_threshold: 1024  # bytes
+
+# Monitoring
+monitoring:
+  stats_enabled: true
+  slowlog_threshold_ms: 10
+  track_hit_rate: true
+  alert_threshold:
+    memory_usage_percent: 80
+    hit_rate_min: 70

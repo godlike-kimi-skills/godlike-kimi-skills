@@ -1,0 +1,10 @@
+{
+  "name": "huggingface-skill",
+  "category": "ai-ml",
+  "version": "1.0.0",
+  "description": "Hugging Face模型管理工具，支持模型下载、Pipeline使用和数据集加载",
+  "author": "godlike-kimi",
+  "dependencies": ["transformers", "datasets", "tokenizers", "torch", "huggingface-hub"],
+  "entry_point": "main.py",
+  "python_version": ">=3.8"
+}

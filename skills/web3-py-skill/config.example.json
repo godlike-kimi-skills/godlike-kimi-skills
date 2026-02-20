@@ -1,0 +1,18 @@
+{
+    "network": "mainnet",
+    "rpc_url": "https://mainnet.infura.io/v3/YOUR_INFURA_API_KEY",
+    "private_key": "YOUR_PRIVATE_KEY",
+    "default_gas_limit": 21000,
+    "max_gas_price_gwei": 100,
+    "confirmations": 1,
+    "timeout": 120,
+    "middlewares": [
+        "geth_poa"
+    ],
+    "provider_type": "http",
+    "ens_address": null,
+    "wallets": [],
+    "contracts": {
+        "deployment_gas_limit": 5000000
+    }
+}

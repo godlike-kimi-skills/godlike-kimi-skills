@@ -1,0 +1,53 @@
+{
+  "name": "react-native-skill",
+  "version": "1.0.0",
+  "category": "mobile",
+  "description": "React Native mobile development skill with component generation, navigation setup, and native module support",
+  "author": "Kimi",
+  "license": "MIT",
+  "keywords": ["react-native", "mobile", "ios", "android", "cross-platform"],
+  "entry": "main.py",
+  "dependencies": {
+    "python": ">=3.8",
+    "packages": ["jinja2", "pyyaml"]
+  },
+  "commands": [
+    {
+      "name": "generate:component",
+      "description": "Generate React Native component"
+    },
+    {
+      "name": "generate:screen",
+      "description": "Generate screen component"
+    },
+    {
+      "name": "generate:hook",
+      "description": "Generate custom hook"
+    },
+    {
+      "name": "setup:navigation",
+      "description": "Setup React Navigation"
+    },
+    {
+      "name": "generate:native-module",
+      "description": "Generate native module boilerplate"
+    },
+    {
+      "name": "setup:redux",
+      "description": "Setup Redux Toolkit"
+    },
+    {
+      "name": "config:metro",
+      "description": "Configure Metro bundler"
+    }
+  ],
+  "templates": [
+    "component",
+    "screen",
+    "hook",
+    "navigator",
+    "native-module-ios",
+    "native-module-android",
+    "redux-slice"
+  ]
+}

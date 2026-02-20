@@ -1,0 +1,12 @@
+{
+  "name": "jupyter-skill",
+  "version": "1.0.0",
+  "category": "data-science",
+  "description": "Jupyter Notebook management skill for notebook creation, execution, and conversion. Use when analyzing data, creating visualizations, or when user mentions 'jupyter', 'notebook', 'ipynb', 'jupyter lab'.",
+  "author": "Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "keywords": ["jupyter", "notebook", "ipynb", "nbconvert", "nbformat", "execution"],
+  "dependencies": ["jupyter", "nbformat", "nbconvert", "ipython"],
+  "min_kimi_version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "ffmpeg-skill",
+  "category": "media",
+  "version": "1.0.0",
+  "description": "FFmpeg media processing for video conversion, audio extraction, and format conversion",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "keywords": ["ffmpeg", "video", "audio", "media", "conversion", "transcoding"],
+  "entry_point": "scripts/main.py",
+  "dependencies": ["ffmpeg-python", "pydub", "tqdm"],
+  "min_python_version": "3.8"
+}

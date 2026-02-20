@@ -1,0 +1,9 @@
+# Regex Skill Dependencies
+# Python >= 3.8
+
+# No external dependencies required
+# Uses Python's built-in `re` module
+
+# Development dependencies (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0

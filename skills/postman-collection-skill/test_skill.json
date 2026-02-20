@@ -1,0 +1,52 @@
+{
+  "test_name": "postman-collection-skill-tests",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "name": "test_collection_creation",
+      "description": "Test basic Postman collection creation",
+      "command": "python main.py create --name 'Test Collection' --url 'https://api.example.com'",
+      "expected_output_contains": ["success", "collection"]
+    },
+    {
+      "name": "test_openapi_conversion",
+      "description": "Test converting OpenAPI to Postman",
+      "input_file": "examples/petstore-openapi.json",
+      "command": "python main.py convert --input examples/petstore-openapi.json",
+      "expected_output_contains": ["output_file", ".postman_collection.json"]
+    },
+    {
+      "name": "test_environment_export",
+      "description": "Test environment configuration export",
+      "command": "python main.py export --name 'Development'",
+      "expected_output_contains": ["success", "output_file"]
+    },
+    {
+      "name": "test_test_generation",
+      "description": "Test test script generation",
+      "command": "python main.py test",
+      "expected_output_contains": ["test_script", "pm.test"]
+    }
+  ],
+  "mock_files": {
+    "examples/petstore-openapi.json": {
+      "openapi": "3.0.3",
+      "info": {
+        "title": "Pet Store API",
+        "version": "1.0.0"
+      },
+      "servers": [{"url": "https://petstore.example.com"}],
+      "paths": {
+        "/pets": {
+          "get": {
+            "summary": "List pets",
+            "tags": ["pets"],
+            "responses": {
+              "200": {"description": "List of pets"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

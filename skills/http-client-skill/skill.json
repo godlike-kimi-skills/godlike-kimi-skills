@@ -1,0 +1,12 @@
+{
+  "name": "http-client-skill",
+  "category": "development",
+  "version": "1.0.0",
+  "description": "HTTP client and API testing tool with support for GET/POST/PUT/DELETE requests, header management, and response analysis.",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "tags": ["http", "rest", "api", "client", "testing", "curl", "requests"],
+  "dependencies": ["requests>=2.28.0"],
+  "entry_point": "scripts/main.py",
+  "min_python_version": "3.8"
+}

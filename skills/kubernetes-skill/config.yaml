@@ -1,0 +1,72 @@
+skill:
+  name: kubernetes-skill
+  version: 1.0.0
+
+kubernetes:
+  # 默认命名空间
+  default_namespace: default
+  
+  # kubeconfig路径，null表示使用默认路径(~/.kube/config)
+  kubeconfig_path: null
+  
+  # 默认kubectl上下文
+  default_context: null
+  
+  # API请求超时（秒）
+  api_timeout: 30
+  
+  # 日志配置
+  logging:
+    level: info
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # 安全设置
+  security:
+    # 是否在删除前要求确认
+    confirm_deletion: true
+    # 敏感命名空间保护（禁止在这些ns上执行删除等危险操作）
+    protected_namespaces:
+      - kube-system
+      - kube-public
+      - kube-node-lease
+    # 最大并发操作数
+    max_concurrent_operations: 10
+
+# 输出配置
+output:
+  # 默认输出格式: table, json, yaml
+  format: table
+  # 是否启用彩色输出
+  color: true
+  # 时间格式
+  time_format: "%Y-%m-%d %H:%M:%S"
+  # 表格最大宽度
+  table_max_width: 200
+
+# 默认资源配额（用于create命令）
+defaults:
+  deployment:
+    replicas: 1
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "128Mi"
+      limits:
+        cpu: "500m"
+        memory: "512Mi"
+  
+  service:
+    type: ClusterIP
+  
+  pod:
+    restart_policy: Always
+
+# 别名配置（用于简化命令）
+aliases:
+  po: pod
+  deploy: deployment
+  svc: service
+  cm: configmap
+  secret: secret
+  ns: namespace
+  ing: ingress

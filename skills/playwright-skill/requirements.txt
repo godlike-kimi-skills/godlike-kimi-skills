@@ -1,0 +1,10 @@
+# Playwright Skill Dependencies
+# No Python dependencies required - Playwright is a JavaScript/Node.js tool
+
+# Optional: For Playwright Python bindings
+# playwright>=1.40.0
+
+# Optional: For Node.js tooling
+# nodejs>=16.0.0
+# npm>=8.0.0
+# @playwright/test>=1.40.0

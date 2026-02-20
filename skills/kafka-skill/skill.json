@@ -1,0 +1,45 @@
+{
+  "schema_version": "v1",
+  "name": "kafka-skill",
+  "version": "1.0.0",
+  "title": "Apache Kafka Message Queue",
+  "description": "Professional Apache Kafka message queue operations including topic management, producer/consumer patterns, consumer groups, and stream processing. Use when working with Kafka clusters, implementing event-driven architectures, managing message streams, or building scalable data pipelines.",
+  "category": "messaging",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "homepage": "https://github.com/godlike-kimi-skills/kafka-skill",
+  "repository": "https://github.com/godlike-kimi-skills/kafka-skill.git",
+  "keywords": ["kafka", "messaging", "streaming", "event-driven", "producer", "consumer", "topic"],
+  "language": "python",
+  "main": "src/main.py",
+  "min_cli_version": "0.5.0",
+  "compatible_platforms": ["windows", "macos", "linux"],
+  "parameters": [
+    {
+      "name": "bootstrap_servers",
+      "type": "string",
+      "description": "Kafka bootstrap servers (e.g., localhost:9092)",
+      "required": true
+    },
+    {
+      "name": "topic",
+      "type": "string",
+      "description": "Kafka topic name",
+      "required": false
+    },
+    {
+      "name": "action",
+      "type": "string",
+      "description": "Action to perform: create_topic, delete_topic, list_topics, produce, consume, consumer_group_info",
+      "required": true
+    }
+  ],
+  "commands": {
+    "create_topic": "Create a new Kafka topic with specified partitions and replication factor",
+    "delete_topic": "Delete an existing Kafka topic",
+    "list_topics": "List all topics in the Kafka cluster",
+    "produce": "Send messages to a Kafka topic",
+    "consume": "Consume messages from a Kafka topic",
+    "consumer_group_info": "Get information about consumer groups"
+  }
+}

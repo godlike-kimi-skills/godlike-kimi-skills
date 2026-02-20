@@ -1,0 +1,21 @@
+{
+  "name": "postgres-skill",
+  "version": "1.0.0",
+  "category": "database",
+  "description": "PostgreSQL database query and management tool. Supports SQL queries, table structure viewing, data import/export.",
+  "author": "KbotGenesis",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "tags": ["postgresql", "postgres", "sql", "database", "psycopg2"],
+  "requirements": ["psycopg2-binary>=2.9.0"],
+  "min_python_version": "3.8",
+  "use_cases": [
+    "Execute SQL queries on PostgreSQL databases",
+    "View table structures and schemas",
+    "Export data to CSV/JSON formats",
+    "Import data from CSV/JSON files",
+    "Backup and restore databases"
+  ],
+  "keywords": ["postgres", "psql", "postgresql database", "sql query", "pg_dump"]
+}

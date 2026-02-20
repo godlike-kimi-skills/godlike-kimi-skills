@@ -1,0 +1,55 @@
+{
+  "name": "regex-skill",
+  "version": "1.0.0",
+  "description": "Regular expression tool for pattern matching, validation, replacement, testing and generation",
+  "category": "utility",
+  "author": "Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "python_version": ">=3.8",
+  "dependencies": [],
+  "keywords": [
+    "regex",
+    "regular expression",
+    "pattern",
+    "match",
+    "validate",
+    "replace",
+    "text processing"
+  ],
+  "commands": [
+    {
+      "name": "match",
+      "description": "Find all matches in text"
+    },
+    {
+      "name": "search",
+      "description": "Search for first match"
+    },
+    {
+      "name": "validate",
+      "description": "Validate string format"
+    },
+    {
+      "name": "replace",
+      "description": "Replace matches in text"
+    },
+    {
+      "name": "split",
+      "description": "Split text by pattern"
+    },
+    {
+      "name": "test",
+      "description": "Test regex against multiple inputs"
+    },
+    {
+      "name": "generate",
+      "description": "Generate common regex patterns"
+    },
+    {
+      "name": "explain",
+      "description": "Explain regex pattern"
+    }
+  ]
+}

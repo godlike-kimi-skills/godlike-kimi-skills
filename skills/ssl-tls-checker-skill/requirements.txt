@@ -1,0 +1,16 @@
+# SSL/TLS Checker Skill Requirements
+# Python 3.8+
+
+# Core dependencies
+pyopenssl>=22.0.0
+cryptography>=38.0.0
+requests>=2.28.0
+dnspython>=2.3.0
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional enhancements
+beautifulsoup4>=4.11.0  # For HTML parsing if needed
+certifi>=2022.0.0  # SSL certificates

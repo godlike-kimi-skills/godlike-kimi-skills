@@ -1,0 +1,12 @@
+# Grafana Skill Dependencies
+# Python >= 3.8
+
+# Core dependencies (Python standard library only)
+# Uses urllib for HTTP requests (no external dependencies)
+
+# Optional dependencies for enhanced features
+# requests>=2.25.0  # Alternative HTTP client with better features
+
+# Development dependencies
+# pytest>=6.2.0  # For testing
+# pytest-cov>=2.12.0  # For coverage

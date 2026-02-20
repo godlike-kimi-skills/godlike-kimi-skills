@@ -1,7 +1,7 @@
 {
   "name": "browser-use-skill",
   "version": "1.0.0",
-  "description": "AI浏览器自动化工具，支持网页浏览、表单填写、数据提取和截图功能",
+  "description": "AI浏览器自动化，支持网页浏览、表单填写、数据提取和截图。Use when automating browser tasks, web scraping, form filling, taking screenshots, or when user mentions \"browser\", \"web\", \"scrape\", \"automation\", \"navigate\"",
   "category": "automation",
   "author": "Godlike Kimi Skills",
   "license": "MIT",

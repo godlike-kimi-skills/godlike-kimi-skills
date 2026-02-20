@@ -1,0 +1,21 @@
+{
+  "name": "mongodb-skill",
+  "version": "1.0.0",
+  "category": "database",
+  "description": "MongoDB document database management tool. Supports document queries, aggregation pipelines, data backup.",
+  "author": "KbotGenesis",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "tags": ["mongodb", "mongo", "nosql", "document", "pymongo"],
+  "requirements": ["pymongo>=4.0.0"],
+  "min_python_version": "3.8",
+  "use_cases": [
+    "Execute document queries on MongoDB",
+    "Run aggregation pipelines",
+    "Perform CRUD operations",
+    "Export collections to JSON/CSV",
+    "Backup and restore databases"
+  ],
+  "keywords": ["mongodb", "mongo", "nosql database", "document database", "bson"]
+}

@@ -4,6 +4,44 @@
 
 ---
 
+## 何时使用本 Skill
+
+**Use this skill when:**
+- 创建新的 Word 文档
+- 编辑现有的 .docx 文件
+- 从 Markdown/JSON 生成 Word 文档
+- 使用模板批量生成文档（如证书、合同）
+- 合并多个 Word 文档
+- 提取或修改文档内容
+
+**触发关键词：** "docx", "Word", "document", "report", "template", "merge", "DOCX"
+
+**典型场景：**
+1. 根据数据批量生成合同/报告
+2. 将 Markdown 文档转换为 Word
+3. 合并多个章节文件为一本书
+4. 使用模板生成标准化文档
+
+---
+
+## Out of Scope / 不适用范围
+
+本 Skill **不** 处理以下情况：
+
+- **旧版 .doc 格式** - 仅支持 .docx 格式（请先将 .doc 转换为 .docx）
+- **OCR 文字识别** - 不处理扫描件的文字识别（请使用 pdf-skill 或专门 OCR 工具）
+- **宏/VBA 脚本** - 不支持创建或编辑 Word 宏
+- **密码保护文档** - 无法处理有密码保护的文档
+- **实时协作** - 不支持多人实时协作编辑功能
+- **复杂排版** - 不支持专业出版级排版（如 LaTeX 级精度）
+
+替代方案：
+- 旧版 .doc：使用 Microsoft Word 或 LibreOffice 转换
+- OCR：使用 pdf-skill 或 Tesseract OCR
+- 专业排版：考虑使用 LaTeX 或专业排版软件
+
+---
+
 ## 功能概述
 
 本 Skill 让你能够通过 Kimi CLI 自动化处理 Word 文档，无需手动操作 Microsoft Word。

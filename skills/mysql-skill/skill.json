@@ -1,0 +1,21 @@
+{
+  "name": "mysql-skill",
+  "version": "1.0.0",
+  "category": "database",
+  "description": "MySQL/MariaDB database query and management tool. Supports SQL queries, table management, data import/export.",
+  "author": "KbotGenesis",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "tags": ["mysql", "mariadb", "sql", "database", "pymysql"],
+  "requirements": ["PyMySQL>=1.0.0"],
+  "min_python_version": "3.8",
+  "use_cases": [
+    "Execute SQL queries on MySQL/MariaDB databases",
+    "Manage tables (create, alter, describe)",
+    "Export data to multiple formats",
+    "Import data from CSV/JSON files",
+    "Backup and restore databases"
+  ],
+  "keywords": ["mysql", "mariadb", "mysql database", "sql query", "mysqldump"]
+}

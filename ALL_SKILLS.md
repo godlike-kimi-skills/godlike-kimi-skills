@@ -1,4 +1,4 @@
-# 全部Skills / All Skills (111个)
+# 全部Skills / All Skills (139个)
 
 > 完整Skill列表，按分类组织
 
@@ -14,6 +14,7 @@
 - [☁️ 云梯自动化 (4个)](#云梯自动化-cloud-ladder-automation)
 - [🌙 月华金融 (14个)](#月华金融-moonlight-finance)
 - [🎋 玉简其他 (34个)](#玉简其他-jade-slip-others)
+- [🆕 新迁移Skills (28个)](#新迁移skills)
 
 ---
 
@@ -232,6 +233,72 @@ AI能力与自动化
 
 ---
 
+## 🆕 新迁移Skills (28个)
+
+从 D:/kimi/skills 迁移的新Skills
+
+### 安全与密码 (2个)
+| Skill | 中文名 | 质量 | 描述 |
+|-------|--------|------|------|
+| [1password-cli](./skills/1password-cli) | 1Password | 🥈 AA | 密码管理CLI |
+| [sec-audit](./skills/sec-audit) | 安全审计 | 🥈 AA | 安全审计工具 |
+
+### AI与代理 (3个)
+| Skill | 中文名 | 质量 | 描述 |
+|-------|--------|------|------|
+| [agent-orchestrator](./skills/agent-orchestrator) | 代理编排 | 🏆 AAA | 智能代理编排 |
+| [ai-skills](./skills/ai-skills) | AI技能集 | 🏆 AAA | AI技能集合包 |
+| [context-manager](./skills/context-manager) | 上下文管理 | 🥈 AA | AI上下文管理 |
+
+### 开发与调试 (5个)
+| Skill | 中文名 | 质量 | 描述 |
+|-------|--------|------|------|
+| [code-search](./skills/code-search) | 代码搜索 | 🥈 AA | 智能代码搜索 |
+| [debug-master](./skills/debug-master) | 调试大师 | 🏆 AAA | 高级调试工具 |
+| [dev-workflow](./skills/dev-workflow) | 开发工作流 | 🥈 AA | 开发流程优化 |
+| [git-assistant](./skills/git-assistant) | Git助手 | 🥈 AA | Git智能助手 |
+| [git-toolkit](./skills/git-toolkit) | Git工具包 | 🥈 AA | Git工具集合 |
+
+### 运维与监控 (4个)
+| Skill | 中文名 | 质量 | 描述 |
+|-------|--------|------|------|
+| [container-doctor](./skills/container-doctor) | 容器医生 | 🥈 AA | 容器诊断工具 |
+| [log-sentinel](./skills/log-sentinel) | 日志哨兵 | 🥈 AA | 日志监控告警 |
+| [net-debugger](./skills/net-debugger) | 网络调试 | 🥈 AA | 网络问题诊断 |
+| [system-monitor](./skills/system-monitor) | 系统监控 | 🥈 AA | 系统性能监控 |
+
+### 数据与爬虫 (3个)
+| Skill | 中文名 | 质量 | 描述 |
+|-------|--------|------|------|
+| [brightdata-scraper](./skills/brightdata-scraper) | Brightdata | 🥈 AA | 商业数据爬取 |
+| [doc-fetcher](./skills/doc-fetcher) | 文档获取 | 🥈 AA | 文档自动获取 |
+| [web-scraper](./skills/web-scraper) | 网页爬虫 | 🥈 AA | 通用网页爬虫 |
+
+### 效率与任务 (3个)
+| Skill | 中文名 | 质量 | 描述 |
+|-------|--------|------|------|
+| [pptx-creator](./skills/pptx-creator) | PPT创建 | 🥈 AA | PPT自动生成 |
+| [project-postmortem](./skills/project-postmortem) | 项目复盘 | 🥈 AA | 项目复盘工具 |
+| [task-tracker](./skills/task-tracker) | 任务追踪 | 🥈 AA | 任务时间追踪 |
+
+### 金融与地图 (3个)
+| Skill | 中文名 | 质量 | 描述 |
+|-------|--------|------|------|
+| [amap-traffic](./skills/amap-traffic) | 高德交通 | 🥈 AA | 实时交通查询 |
+| [marketing-analyzer](./skills/marketing-analyzer) | 市场分析 | 🥈 AA | 营销数据分析 |
+| [stock-watcher](./skills/stock-watcher) | 股票监控 | 🥈 AA | 股票实时监控 |
+
+### 娱乐与其他 (5个)
+| Skill | 中文名 | 质量 | 描述 |
+|-------|--------|------|------|
+| [audio-notify](./skills/audio-notify) | 音频通知 | 🥉 A | 语音通知提醒 |
+| [frontend-design](./skills/frontend-design) | 前端设计 | 🥈 AA | 前端设计助手 |
+| [kbot-social](./skills/kbot-social) | 社交助手 | 🥉 A | 社交媒体自动化 |
+| [otaku-reco](./skills/otaku-reco) | 二次元推荐 | 🥉 A | 动漫游戏推荐 |
+| [otaku-wiki](./skills/otaku-wiki) | 二次元百科 | 🥉 A | ACG知识百科 |
+
+---
+
 ## 统计 / Statistics
 
 | 分类 | 数量 | 金印(AAA) | 银牌(AA) | 铜牌(A) |
@@ -244,7 +311,8 @@ AI能力与自动化
 | 云梯自动化 | 4 | 0 | 1 | 3 |
 | 月华金融 | 14 | 0 | 3 | 11 |
 | 玉简其他 | 34 | 3 | 2 | 29 |
-| **总计** | **111** | **13** | **28** | **70** |
+| 新迁移Skills | 28 | 3 | 17 | 8 |
+| **总计** | **139** | **16** | **45** | **78** |
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "name": "redis-cache-skill",
+  "category": "database",
+  "version": "1.0.0",
+  "description": "Redis cache management with strategies, expiration, and performance analysis",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "keywords": ["redis", "cache", "database", "performance", "session-store"],
+  "entry_point": "scripts/main.py",
+  "dependencies": ["redis", "pyyaml", "click"],
+  "min_python_version": "3.8"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "code-metrics-skill",
+  "category": "development",
+  "version": "1.0.0",
+  "description": "Code quality metrics with cyclomatic complexity, line counts, and duplicate detection",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "keywords": ["code-quality", "metrics", "complexity", "duplication", "analysis", "lint"],
+  "entry_point": "scripts/main.py",
+  "dependencies": ["radon", "pylint", "jinja2", "tabulate"],
+  "min_python_version": "3.8"
+}

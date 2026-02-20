@@ -1,0 +1,35 @@
+{
+  "name": "helm-skill",
+  "version": "1.0.0",
+  "description": "Helm包管理器工具，支持Chart安装、升级、回滚和仓库管理。Use when managing Helm charts, deploying applications with Helm, or when user mentions 'helm', 'chart', 'release', 'helm repo'。",
+  "category": "devops",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "language": "python",
+  "entry": "main.py",
+  "requirements": "requirements.txt",
+  "config": "config.yaml",
+  "tags": [
+    "helm",
+    "kubernetes",
+    "chart",
+    "package-manager",
+    "devops"
+  ],
+  "capabilities": [
+    "chart-installation",
+    "chart-upgrade",
+    "chart-rollback",
+    "release-management",
+    "repository-management",
+    "chart-development"
+  ],
+  "dependencies": {
+    "helm": ">=3.12",
+    "kubectl": ">=1.24",
+    "kubernetes-cluster": ">=1.24"
+  },
+  "python_version": ">=3.8",
+  "documentation": "SKILL.md",
+  "examples": "example.md"
+}

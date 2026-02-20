@@ -1,0 +1,4 @@
+# MySQL Skill Requirements
+# Install with: pip install -r requirements.txt
+
+PyMySQL>=1.0.0

@@ -1,0 +1,21 @@
+{
+  "name": "sqlite-skill",
+  "version": "1.0.0",
+  "category": "database",
+  "description": "SQLite local database management tool. Supports database creation, SQL queries, data backup and maintenance.",
+  "author": "KbotGenesis",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "tags": ["sqlite", "sqlite3", "local", "database", "embedded"],
+  "requirements": [],
+  "min_python_version": "3.8",
+  "use_cases": [
+    "Create and manage SQLite databases",
+    "Execute SQL queries on local databases",
+    "Export data to CSV/JSON/SQL formats",
+    "Import data from CSV files",
+    "Backup and optimize databases"
+  ],
+  "keywords": ["sqlite", "sqlite3", "local database", "embedded database", ".db file"]
+}

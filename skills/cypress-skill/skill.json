@@ -1,0 +1,27 @@
+{
+  "name": "cypress-skill",
+  "version": "1.0.0",
+  "description": "Cypress E2E测试Skill。Use when writing tests, automating testing, or when user mentions 'Cypress', 'E2E testing', 'end-to-end testing', 'browser automation'.",
+  "category": "testing",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "entry": "main.py",
+  "keywords": [
+    "cypress",
+    "e2e",
+    "end-to-end",
+    "testing",
+    "browser",
+    "automation",
+    "page-object"
+  ],
+  "capabilities": [
+    "test-generation",
+    "page-object-pattern",
+    "fixture-management",
+    "command-customization",
+    "report-generation"
+  ],
+  "dependencies": [],
+  "min_kimi_version": "1.0.0"
+}

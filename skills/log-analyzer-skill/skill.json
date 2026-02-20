@@ -1,0 +1,53 @@
+{
+  "name": "log-analyzer-skill",
+  "category": "monitoring",
+  "description": "智能日志分析工具，支持Nginx/Apache/App日志解析、错误统计、趋势分析。关键词：日志分析、log analysis、Nginx日志、Apache日志、错误统计、error analysis、日志解析、log parsing、错误模式、error pattern、日志趋势、log trend、访问日志、access log、日志报告、log report",
+  "version": "1.0.0",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "keywords": [
+    "日志分析",
+    "log analysis",
+    "Nginx日志",
+    "Apache日志",
+    "错误统计",
+    "error analysis",
+    "日志解析",
+    "log parsing",
+    "趋势分析",
+    "error pattern",
+    "access log",
+    "日志报告"
+  ],
+  "dependencies": [],
+  "capabilities": [
+    "nginx_log_analysis",
+    "apache_log_analysis",
+    "error_statistics",
+    "trend_analysis",
+    "log_parsing",
+    "report_generation"
+  ],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "log_path": {"type": "string", "description": "日志文件路径"},
+      "log_format": {"type": "string", "enum": ["nginx", "apache", "json", "auto"], "default": "auto"},
+      "analysis_type": {"type": "string", "enum": ["summary", "trend", "errors", "full"], "default": "summary"},
+      "time_range": {"type": "string", "description": "时间范围，如 '24h', '7d'"},
+      "output_format": {"type": "string", "enum": ["json", "html", "markdown"], "default": "json"}
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "summary": {"type": "object"},
+      "statistics": {"type": "object"},
+      "trends": {"type": "array"},
+      "errors": {"type": "array"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

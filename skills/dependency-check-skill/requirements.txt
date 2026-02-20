@@ -1,0 +1,15 @@
+# Dependency Check Skill Requirements
+# Python 3.8+
+
+# Core dependencies
+requests>=2.28.0
+packaging>=21.0
+pyyaml>=6.0
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional enhancements
+beautifulsoup4>=4.11.0  # For HTML report generation
+jinja2>=3.0.0  # For template-based reports

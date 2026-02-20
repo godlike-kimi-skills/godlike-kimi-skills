@@ -1,0 +1,12 @@
+{
+  "name": "git-hooks-skill",
+  "category": "development",
+  "version": "1.0.0",
+  "description": "Git hooks management for pre-commit, Husky configuration, and custom hooks",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "keywords": ["git", "hooks", "pre-commit", "husky", "lint", "automation"],
+  "entry_point": "scripts/main.py",
+  "dependencies": ["gitpython", "pyyaml", "jinja2"],
+  "min_python_version": "3.8"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "flutter-skill",
+  "version": "1.0.0",
+  "category": "mobile",
+  "description": "Flutter mobile development skill with widget generation, state management, and theme configuration",
+  "author": "Kimi",
+  "license": "MIT",
+  "keywords": ["flutter", "dart", "mobile", "cross-platform", "widgets"],
+  "entry": "main.py",
+  "dependencies": {
+    "python": ">=3.8",
+    "packages": ["jinja2", "pyyaml"]
+  },
+  "commands": [
+    {
+      "name": "generate:widget",
+      "description": "Generate Flutter widget"
+    },
+    {
+      "name": "generate:screen",
+      "description": "Generate screen widget"
+    },
+    {
+      "name": "setup:riverpod",
+      "description": "Setup Riverpod state management"
+    },
+    {
+      "name": "setup:bloc",
+      "description": "Setup Bloc pattern"
+    },
+    {
+      "name": "setup:go_router",
+      "description": "Configure GoRouter navigation"
+    },
+    {
+      "name": "setup:theme",
+      "description": "Setup theme configuration"
+    },
+    {
+      "name": "generate:feature",
+      "description": "Generate feature module"
+    }
+  ],
+  "templates": [
+    "stateless_widget",
+    "stateful_widget",
+    "riverpod_provider",
+    "bloc_cubit",
+    "go_router",
+    "theme_config",
+    "feature_module"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "kubernetes-skill",
+  "version": "1.0.0",
+  "description": "Kubernetes集群管理工具，支持Pod/Deployment/Service管理、日志查看和扩缩容操作。Use when managing Kubernetes clusters, deploying applications to K8s, or when user mentions 'kubernetes', 'k8s', 'kubectl', 'pod', 'deployment'。",
+  "category": "devops",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "language": "python",
+  "entry": "main.py",
+  "requirements": "requirements.txt",
+  "config": "config.yaml",
+  "tags": [
+    "kubernetes",
+    "k8s",
+    "kubectl",
+    "container-orchestration",
+    "devops"
+  ],
+  "capabilities": [
+    "pod-management",
+    "deployment-management",
+    "service-management",
+    "log-viewing",
+    "scaling",
+    "configuration-management"
+  ],
+  "dependencies": {
+    "kubectl": ">=1.24",
+    "kubernetes-cluster": ">=1.24"
+  },
+  "python_version": ">=3.8",
+  "documentation": "SKILL.md",
+  "examples": "example.md"
+}

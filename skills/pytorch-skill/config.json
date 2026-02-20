@@ -1,0 +1,29 @@
+{
+  "device": "auto",
+  "default_epochs": 10,
+  "default_batch_size": 32,
+  "default_lr": 0.001,
+  "default_optimizer": "adam",
+  "default_loss": "cross_entropy",
+  "early_stopping": {
+    "enabled": true,
+    "patience": 5,
+    "min_delta": 0.001
+  },
+  "model_checkpoint": {
+    "enabled": true,
+    "save_best_only": true,
+    "checkpoint_dir": "./checkpoints"
+  },
+  "training": {
+    "shuffle": true,
+    "num_workers": 0,
+    "pin_memory": false,
+    "drop_last": false
+  },
+  "mixed_precision": false,
+  "gradient_clipping": {
+    "enabled": false,
+    "max_norm": 1.0
+  }
+}

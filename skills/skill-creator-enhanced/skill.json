@@ -3,7 +3,7 @@
   "name": "skill-creator-enhanced",
   "version": "1.0.0",
   "title": "增强版技能创建器",
-  "description": "一键创建符合开源标准的Kimi Skill项目，自动生成skill.json、SKILL.md、README.md、测试模板和CI/CD配置",
+  "description": "Use when creating new skills, scaffolding projects, generating standardized files, or when user mentions 'create skill', 'skill template', 'scaffold', 'generate skill'. 一键创建符合开源标准的Kimi Skill项目，自动生成skill.json、SKILL.md、README.md、测试模板和CI/CD配置",
   "author": "Godlike Kimi Skills",
   "license": "MIT",
   "repository": "https://github.com/godlike-kimi-skills/skill-creator-enhanced",

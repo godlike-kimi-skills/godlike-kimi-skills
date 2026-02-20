@@ -1,0 +1,40 @@
+{
+  "name": "github-actions-skill",
+  "category": "cicd",
+  "version": "1.0.0",
+  "description": "GitHub Actions工作流管理 - 支持Workflow创建、触发器配置、Secrets管理和Runner管理",
+  "author": "Godlike-Kimi-Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "config": {
+    "token": {
+      "type": "string",
+      "required": true,
+      "description": "GitHub Personal Access Token"
+    },
+    "repo": {
+      "type": "string",
+      "required": true,
+      "description": "Repository name in format owner/repo"
+    },
+    "base_url": {
+      "type": "string",
+      "required": false,
+      "default": "https://api.github.com",
+      "description": "GitHub API base URL"
+    }
+  },
+  "capabilities": [
+    "workflow_create",
+    "workflow_update",
+    "workflow_delete",
+    "trigger_config",
+    "secrets_manage",
+    "run_monitor",
+    "runner_manage",
+    "template_generate"
+  ],
+  "tags": ["github", "actions", "cicd", "devops", "automation"],
+  "dependencies": ["PyGithub>=2.1.0", "PyYAML>=6.0"],
+  "python_version": ">=3.8"
+}

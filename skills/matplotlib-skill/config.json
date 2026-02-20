@@ -1,0 +1,15 @@
+{
+  "default_figsize": [10, 6],
+  "default_dpi": 100,
+  "default_style": "default",
+  "default_format": "png",
+  "font_family": "sans-serif",
+  "font_size": 12,
+  "axes_titlesize": 14,
+  "axes_labelsize": 12,
+  "savefig_dpi": 300,
+  "savefig_bbox": "tight",
+  "color_palette": "default",
+  "interactive": false,
+  "backend": "Agg"
+}

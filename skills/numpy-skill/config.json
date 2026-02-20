@@ -1,0 +1,13 @@
+{
+  "default_dtype": "float64",
+  "default_seed": null,
+  "print_options": {
+    "precision": 4,
+    "suppress": true,
+    "linewidth": 120
+  },
+  "array_threshold": 1000,
+  "cache_enabled": true,
+  "log_level": "INFO",
+  "linalg_backend": "default"
+}

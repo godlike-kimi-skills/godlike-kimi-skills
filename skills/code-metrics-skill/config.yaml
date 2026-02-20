@@ -1,0 +1,104 @@
+# Code Metrics Skill Configuration
+
+metrics:
+  # Complexity settings
+  complexity:
+    thresholds:
+      low: 5
+      medium: 10
+      high: 20
+      very_high: 50
+    
+    # Weights for scoring
+    weights:
+      low: 0
+      medium: 2
+      high: 5
+      very_high: 10
+
+  # Duplicate detection
+  duplicates:
+    min_lines: 5
+    similarity_threshold: 0.95
+    max_reported: 50
+    
+  # Line counting
+  lines:
+    count_docstrings: true
+    count_inline_comments: true
+    count_blank_lines: true
+
+  # File size thresholds
+  file_size:
+    warning_lines: 500
+    error_lines: 1000
+    penalty_warning: 10
+    penalty_error: 20
+
+  # Comment ratio
+  comments:
+    min_ratio: 10
+    ideal_ratio: 20
+    max_ratio: 40
+    penalty_low: 10
+    bonus_ideal: 5
+
+# Quality score calculation
+quality:
+  base_score: 100
+  
+  penalties:
+    high_complexity_function: 5
+    duplicate_block: 10
+    large_file: 10
+    very_large_file: 20
+    low_comments: 10
+  
+  bonuses:
+    good_comments: 5
+    no_duplicates: 15
+    low_complexity: 10
+
+# Maintainability index
+maintainability:
+  complexity_weight: 2
+  comment_deficit_weight: 1
+  size_weight: 0.01
+  min_score: 0
+  max_score: 100
+
+# Analysis settings
+analysis:
+  exclude_patterns:
+    - "*venv*"
+    - "*__pycache__*"
+    - "*test*"
+    - "*tests*"
+    - "*build*"
+    - "*dist*"
+    - "*.egg-info*"
+    - "*node_modules*"
+    - "*.git*"
+  
+  supported_extensions:
+    - ".py"
+  
+  parallel_workers: 4
+
+# Reporting
+report:
+  formats:
+    - text
+    - json
+    - html
+  
+  top_n_complex_files: 10
+  top_n_lowest_quality: 10
+  show_all_duplicates: false
+
+# Thresholds for CI/CD
+thresholds:
+  min_quality_score: 60
+  min_maintainability: 50
+  max_avg_complexity: 10
+  max_duplicate_blocks: 10

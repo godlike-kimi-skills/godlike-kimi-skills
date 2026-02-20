@@ -1,0 +1,53 @@
+{
+  "name": "ios-skill",
+  "version": "1.0.0",
+  "category": "mobile",
+  "description": "iOS native development skill with Swift code generation, Xcode configuration, and certificate management",
+  "author": "Kimi",
+  "license": "MIT",
+  "keywords": ["ios", "swift", "swiftui", "uikit", "xcode", "mobile"],
+  "entry": "main.py",
+  "dependencies": {
+    "python": ">=3.8",
+    "packages": ["jinja2", "pyyaml"]
+  },
+  "commands": [
+    {
+      "name": "generate:view",
+      "description": "Generate SwiftUI/UIKit view"
+    },
+    {
+      "name": "generate:viewmodel",
+      "description": "Generate MVVM view model"
+    },
+    {
+      "name": "generate:model",
+      "description": "Generate data model"
+    },
+    {
+      "name": "setup:project",
+      "description": "Setup Xcode project"
+    },
+    {
+      "name": "config:signing",
+      "description": "Configure code signing"
+    },
+    {
+      "name": "setup:network",
+      "description": "Setup networking layer"
+    },
+    {
+      "name": "generate:coredata",
+      "description": "Generate Core Data model"
+    }
+  ],
+  "templates": [
+    "swiftui_view",
+    "uikit_viewcontroller",
+    "mvvm_viewmodel",
+    "codable_model",
+    "coredata_entity",
+    "network_service",
+    "xcode_project"
+  ]
+}

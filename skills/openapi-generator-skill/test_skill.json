@@ -1,0 +1,53 @@
+{
+  "test_name": "openapi-generator-skill-tests",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "name": "test_basic_generation",
+      "description": "Test basic OpenAPI spec generation",
+      "command": "python main.py generate --title 'Test API' --version 1.0.0",
+      "expected_output_contains": ["success", "spec"]
+    },
+    {
+      "name": "test_validation_pass",
+      "description": "Test validation with valid spec",
+      "input_file": "examples/petstore.json",
+      "command": "python main.py validate",
+      "expected_output_contains": ["valid", "true"]
+    },
+    {
+      "name": "test_client_generation_python",
+      "description": "Test Python client generation",
+      "input_file": "examples/petstore.json",
+      "command": "python main.py client --language python",
+      "expected_output_contains": ["class", "def"]
+    },
+    {
+      "name": "test_client_generation_js",
+      "description": "Test JavaScript client generation",
+      "input_file": "examples/petstore.json",
+      "command": "python main.py client --language javascript",
+      "expected_output_contains": ["class", "async"]
+    }
+  ],
+  "mock_files": {
+    "examples/petstore.json": {
+      "openapi": "3.0.3",
+      "info": {
+        "title": "Pet Store",
+        "version": "1.0.0"
+      },
+      "servers": [{"url": "https://api.petstore.com"}],
+      "paths": {
+        "/pets": {
+          "get": {
+            "operationId": "listPets",
+            "responses": {
+              "200": {"description": "List of pets"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

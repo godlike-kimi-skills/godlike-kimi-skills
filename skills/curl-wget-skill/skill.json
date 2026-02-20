@@ -1,0 +1,20 @@
+{
+  "name": "curl-wget-skill",
+  "version": "1.0.0",
+  "category": "network",
+  "description": "HTTP download tool with curl and wget capabilities. Use when scanning networks, managing remote servers, or when user mentions 'SSH', 'DNS', 'network'. Supports file downloads, resume capability, and batch downloads.",
+  "author": "Kimi Skills Team",
+  "license": "MIT",
+  "entry": "main.py",
+  "main_function": "download",
+  "triggers": ["download", "curl", "wget", "http", "file download", "batch download"],
+  "supported_platforms": ["windows", "linux", "macos"],
+  "dependencies": ["requests", "tqdm"],
+  "min_python_version": "3.8",
+  "config": {
+    "default_timeout": 30,
+    "chunk_size": 8192,
+    "max_retries": 3,
+    "user_agent": "curl-wget-skill/1.0.0"
+  }
+}

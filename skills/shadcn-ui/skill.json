@@ -1,0 +1,94 @@
+{
+  "name": "shadcn-ui",
+  "version": "1.0.0",
+  "description": "shadcn/ui 组件库集成工具 - 快速安装、管理和生成 UI 组件",
+  "category": "development",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "repository": "https://github.com/godlike-kimi/skills/shadcn-ui",
+  "entry_point": "main.py",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "description": "操作类型",
+      "enum": ["install", "add", "list", "remove", "search", "theme", "generate", "init", "update", "doctor"],
+      "required": true
+    },
+    "component": {
+      "type": "string",
+      "description": "组件名称（用于 add/remove/search 操作）",
+      "required": false
+    },
+    "project_path": {
+      "type": "string",
+      "description": "项目路径",
+      "default": ".",
+      "required": false
+    },
+    "base_color": {
+      "type": "string",
+      "description": "基础主题色",
+      "enum": ["neutral", "gray", "zinc", "stone", "slate"],
+      "default": "slate",
+      "required": false
+    },
+    "css_framework": {
+      "type": "string",
+      "description": "CSS 框架",
+      "enum": ["tailwind", "css"],
+      "default": "tailwind",
+      "required": false
+    },
+    "base_url": {
+      "type": "string",
+      "description": "组件 registry 基础 URL",
+      "default": "https://ui.shadcn.com",
+      "required": false
+    },
+    "overwrite": {
+      "type": "boolean",
+      "description": "是否覆盖已有组件",
+      "default": false,
+      "required": false
+    },
+    "yes": {
+      "type": "boolean",
+      "description": "自动确认所有提示",
+      "default": false,
+      "required": false
+    }
+  },
+  "examples": [
+    {
+      "command": "python main.py --action init --project_path ./my-app",
+      "description": "初始化 shadcn/ui 到项目"
+    },
+    {
+      "command": "python main.py --action add --component button",
+      "description": "安装 button 组件"
+    },
+    {
+      "command": "python main.py --action add --component card,input,button",
+      "description": "批量安装多个组件"
+    },
+    {
+      "command": "python main.py --action list",
+      "description": "列出所有可用组件"
+    },
+    {
+      "command": "python main.py --action search --component form",
+      "description": "搜索组件"
+    },
+    {
+      "command": "python main.py --action theme --base_color zinc",
+      "description": "配置主题色"
+    },
+    {
+      "command": "python main.py --action doctor",
+      "description": "检查项目配置"
+    }
+  ],
+  "dependencies": ["python>=3.8"],
+  "platforms": ["windows", "linux", "macos"],
+  "tags": ["shadcn-ui", "react", "tailwindcss", "ui-components", "frontend"]
+}

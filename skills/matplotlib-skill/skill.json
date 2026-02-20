@@ -1,0 +1,12 @@
+{
+  "name": "matplotlib-skill",
+  "version": "1.0.0",
+  "category": "data-science",
+  "description": "Matplotlib data visualization skill for chart generation, style customization, and export saving. Use when analyzing data, creating visualizations, or when user mentions 'matplotlib', 'plot', 'chart', 'visualization', 'graph'.",
+  "author": "Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "keywords": ["matplotlib", "visualization", "plot", "chart", "graph", "figure", "export"],
+  "dependencies": ["matplotlib", "numpy", "pillow"],
+  "min_kimi_version": "1.0.0"
+}

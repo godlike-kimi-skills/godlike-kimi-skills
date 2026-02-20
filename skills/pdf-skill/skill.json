@@ -2,7 +2,7 @@
   "name": "pdf-skill",
   "title": "PDF处理器",
   "title_en": "PDF Processor",
-  "description": "提取、创建、合并、转换PDF文件，支持文本提取、页面拆分合并、PDF转图片等功能",
+  "description": "提取、创建、合并、转换PDF文件，支持文本提取、页面操作和元数据管理。Use when processing PDF files, extracting text, merging documents, splitting pages, or when user mentions \"PDF\", \"pdf\", \"extract\", \"merge\", \"split\"",
   "description_en": "Extract, create, merge, and convert PDF files with text extraction, page splitting/merging, PDF to image conversion",
   "version": "1.0.0",
   "category": "automation",

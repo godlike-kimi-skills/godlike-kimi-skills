@@ -1,0 +1,52 @@
+{
+  "test_name": "markdown-docs-skill-tests",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "name": "test_readme_generation",
+      "description": "Test README generation with default template",
+      "command": "python main.py readme --name 'Test Project' --description 'A test project'",
+      "expected_output_contains": ["success", "content", "# Test Project"]
+    },
+    {
+      "name": "test_api_doc_generation",
+      "description": "Test API documentation generation",
+      "input_file": "examples/openapi-sample.json",
+      "command": "python main.py api --input examples/openapi-sample.json --output API.md",
+      "expected_output_contains": ["success", "output_file", "API.md"]
+    },
+    {
+      "name": "test_changelog_generation",
+      "description": "Test CHANGELOG generation",
+      "command": "python main.py changelog --name 'Test Project' --version '1.0.0'",
+      "expected_output_contains": ["success", "output_file"]
+    },
+    {
+      "name": "test_markdown_builder",
+      "description": "Test Markdown builder functionality",
+      "command": "python -c \"from main import MarkdownBuilder; b = MarkdownBuilder(); print(b.add_heading('Test', 1).build())\"",
+      "expected_output_contains": ["# Test"]
+    }
+  ],
+  "mock_files": {
+    "examples/openapi-sample.json": {
+      "openapi": "3.0.3",
+      "info": {
+        "title": "Sample API",
+        "version": "1.0.0"
+      },
+      "paths": {
+        "/hello": {
+          "get": {
+            "summary": "Say hello",
+            "responses": {
+              "200": {
+                "description": "Greeting message"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

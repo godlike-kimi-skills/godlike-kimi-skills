@@ -1,0 +1,6 @@
+# Jest Skill Dependencies
+# No Python dependencies required - Jest is a JavaScript/Node.js tool
+
+# Optional: For integration with Node.js tooling
+# nodejs>=14.0.0
+# npm>=6.0.0

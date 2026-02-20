@@ -1,0 +1,72 @@
+# Git Hooks Skill Configuration
+
+git:
+  # Default hook settings
+  defaults:
+    make_executable: true
+    fail_on_error: true
+    use_python: false
+    
+  # Hook paths
+  paths:
+    hooks_dir: .git/hooks
+    husky_dir: .husky
+
+# Commit message validation
+commit_message:
+  enabled: true
+  require_type: true
+  require_scope: false
+  max_length: 72
+  min_length: 10
+  
+  allowed_types:
+    - feat
+    - fix
+    - docs
+    - style
+    - refactor
+    - test
+    - chore
+    - perf
+    - ci
+    - build
+    - revert
+  
+  # Custom pattern (optional, overrides default)
+  pattern: ""
+
+# Pre-commit hook settings
+pre_commit:
+  enabled: true
+  lint_command: ""
+  test_command: ""
+  secret_check_command: ""
+  format_command: ""
+
+# Pre-push hook settings  
+pre_push:
+  enabled: true
+  test_command: ""
+  branch_check_command: ""
+  security_scan_command: ""
+
+# Husky configuration
+husky:
+  version: 7  # 4 for legacy, 7+ for modern
+  auto_install: false
+  
+  # Default hooks
+  hooks:
+    pre-commit: "echo 'Running pre-commit checks...'"
+    pre-push: "echo 'Running pre-push checks...'"
+    commit-msg: ""
+    post-checkout: ""
+    post-merge: ""
+
+# Skill behavior
+skill:
+  backup_existing_hooks: true
+  backup_dir: .git/hooks/backups
+  auto_enable_after_create: true
+  validate_before_run: true

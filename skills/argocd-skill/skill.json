@@ -1,0 +1,49 @@
+{
+  "name": "argocd-skill",
+  "category": "cicd",
+  "version": "1.0.0",
+  "description": "ArgoCD GitOps管理 - 支持Application管理、Sync操作、仓库配置和状态监控",
+  "author": "Godlike-Kimi-Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "config": {
+    "server": {
+      "type": "string",
+      "required": true,
+      "description": "ArgoCD server URL"
+    },
+    "username": {
+      "type": "string",
+      "required": false,
+      "description": "ArgoCD username"
+    },
+    "password": {
+      "type": "string",
+      "required": false,
+      "description": "ArgoCD password"
+    },
+    "token": {
+      "type": "string",
+      "required": false,
+      "description": "ArgoCD API token"
+    },
+    "insecure": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "Skip TLS verification"
+    }
+  },
+  "capabilities": [
+    "app_create",
+    "app_update",
+    "app_delete",
+    "app_sync",
+    "repo_manage",
+    "status_monitor",
+    "history_view"
+  ],
+  "tags": ["argocd", "gitops", "kubernetes", "cicd", "devops"],
+  "dependencies": ["requests>=2.28.0", "PyYAML>=6.0"],
+  "python_version": ">=3.8"
+}

@@ -1,0 +1,48 @@
+{
+    "name": "web3-py-skill",
+    "version": "1.0.0",
+    "description": "Web3.py-based Ethereum development toolkit with wallet management, contract deployment, and ENS resolution. Use when developing blockchain applications, interacting with smart contracts, or when user mentions 'Ethereum', 'Web3', 'blockchain'.",
+    "category": "blockchain",
+    "author": "Godlike Kimi Skills",
+    "license": "MIT",
+    "entry_point": "main.py",
+    "main_file": "main.py",
+    "config_file": "config.json",
+    "python_version": ">=3.8",
+    "dependencies": [
+        "web3>=6.0.0",
+        "eth-account>=0.8.0",
+        "eth-ens>=0.8.0",
+        "eth-utils>=2.0.0",
+        "eth-abi>=4.0.0",
+        "hexbytes>=0.3.0"
+    ],
+    "keywords": [
+        "ethereum",
+        "web3",
+        "blockchain",
+        "wallet",
+        "smart-contract",
+        "ens",
+        "deployment",
+        "crypto"
+    ],
+    "capabilities": [
+        "wallet-management",
+        "contract-deployment",
+        "ens-resolution",
+        "multi-provider",
+        "transaction-signing",
+        "abi-encoding"
+    ],
+    "triggers": [
+        "web3",
+        "ethereum",
+        "blockchain",
+        "wallet",
+        "smart contract",
+        "ens",
+        "deployment",
+        "contract"
+    ]
+}

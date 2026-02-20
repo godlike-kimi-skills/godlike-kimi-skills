@@ -1,0 +1,51 @@
+# Nginx Skill Configuration
+
+nginx:
+  # Default configuration directory
+  config_dir: /etc/nginx
+  
+  # Default settings for new virtual hosts
+  defaults:
+    port: 80
+    document_root: /var/www/html
+    index_files: "index.html index.php index.htm"
+    gzip_enabled: true
+    
+  # SSL defaults
+  ssl:
+    port: 443
+    protocols: "TLSv1.2 TLSv1.3"
+    ciphers: "HIGH:!aNULL:!MD5"
+    prefer_server_ciphers: true
+    session_timeout: 1d
+    session_tickets: off
+    
+  # Logging configuration
+  logging:
+    access_log_format: combined
+    error_log_level: warn
+    log_dir: /var/log/nginx
+    
+  # Load balancer defaults
+  load_balancer:
+    default_method: round_robin
+    keepalive_connections: 32
+    max_fails: 3
+    fail_timeout: 30s
+    
+  # Performance settings
+  performance:
+    worker_processes: auto
+    worker_connections: 1024
+    sendfile: on
+    tcp_nopush: on
+    tcp_nodelay: on
+    keepalive_timeout: 65
+    types_hash_max_size: 2048
+
+# Skill behavior settings
+skill:
+  auto_enable_sites: false
+  test_before_reload: true
+  backup_configs: true
+  backup_dir: /etc/nginx/backups

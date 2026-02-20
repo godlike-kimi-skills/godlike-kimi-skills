@@ -1,0 +1,31 @@
+{
+  "name": "playwright-skill",
+  "version": "1.0.0",
+  "description": "Playwright自动化测试Skill。Use when writing tests, automating testing, or when user mentions 'Playwright', 'browser automation', 'multi-browser testing', 'visual regression testing'.",
+  "category": "testing",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "entry": "main.py",
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "chromium",
+    "firefox",
+    "webkit",
+    "screenshot",
+    "visual-regression",
+    "browser",
+    "e2e"
+  ],
+  "capabilities": [
+    "test-generation",
+    "multi-browser-support",
+    "screenshot-comparison",
+    "test-recording",
+    "api-testing",
+    "mobile-emulation"
+  ],
+  "dependencies": [],
+  "min_kimi_version": "1.0.0"
+}

@@ -8,6 +8,23 @@
 
 本 Skill 帮助开发者快速创建符合 **Anthropic Agent Skill 标准** 和 **Godlike Kimi Skills 规范** 的开源技能项目。
 
+## 何时使用本 Skill
+
+**Use this skill when:**
+- 需要创建新的 Kimi Skill 项目
+- 想要快速生成标准化的 Skill 结构
+- 需要验证现有 Skill 是否符合开源标准
+- 想要升级旧版 Skill 到最新标准
+- 批量创建多个类似的 Skills
+
+**触发关键词：** "create skill", "skill template", "scaffold", "generate skill", "new skill", "skill project"
+
+**典型场景：**
+1. 开始开发新的 Skill
+2. 为团队创建统一的 Skill 模板
+3. 将现有脚本转换为标准 Skill
+4. 验证 Skill 项目完整性
+
 ### 核心能力
 
 1. **项目脚手架生成** - 自动生成完整的 Skill 目录结构
@@ -219,6 +236,22 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 - 支持项目脚手架生成
 - 支持标准化文件模板
 - 支持 CI/CD 配置生成
+
+## Out of Scope / 不适用范围
+
+本 Skill **不** 处理以下情况：
+
+- **Skill 功能开发** - 本 Skill 只生成项目结构，不实现具体功能逻辑
+- **复杂业务逻辑** - 不处理特定领域的业务代码
+- **第三方 API 集成** - 不自动生成 API 客户端代码（请使用 mcp-builder）
+- **UI/UX 设计** - 不处理界面设计相关任务
+- **数据库设计** - 不生成数据库模型或迁移文件
+- **部署配置** - 不处理服务器部署或 Docker 配置
+
+如果您需要以上功能，请考虑：
+- 使用专门的开发 Skills（如 react-best-practices、next-best-practices）
+- 使用 MCP Builder 创建 API 集成
+- 手动实现业务逻辑代码
 
 ---
 

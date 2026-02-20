@@ -1,0 +1,69 @@
+skill:
+  name: helm-skill
+  version: 1.0.0
+
+helm:
+  # Helm二进制路径，null表示使用系统PATH中的helm
+  binary_path: null
+  
+  # 默认kubeconfig路径
+  kubeconfig_path: null
+  
+  # 默认命名空间
+  default_namespace: default
+  
+  # 默认仓库超时（秒）
+  repo_timeout: 30
+  
+  # 默认安装超时（秒）
+  install_timeout: 300
+  
+  # 默认Chart仓库
+  default_repos:
+    - name: bitnami
+      url: https://charts.bitnami.com/bitnami
+    - name: stable
+      url: https://charts.helm.sh/stable
+  
+  # Chart开发配置
+  chart_development:
+    # 默认Chart版本
+    default_version: 0.1.0
+    # 默认App版本
+    default_app_version: "1.0.0"
+    # 默认维护者
+    default_maintainer: "Chart Developer"
+    # 打包输出目录
+    package_destination: ./dist
+  
+  # 安全设置
+  security:
+    # 安装前是否验证Chart
+    verify_charts: false
+    # 允许回滚的最大版本数
+    max_history: 10
+    # 删除前是否要求确认
+    confirm_deletion: true
+  
+  # 输出配置
+  output:
+    # 默认输出格式: table, json, yaml
+    format: table
+    # 是否启用彩色输出
+    color: true
+    # 最大显示历史版本数
+    max_history_display: 20
+
+# 常用Chart快捷方式
+chart_shortcuts:
+  nginx: bitnami/nginx
+  redis: bitnami/redis
+  postgres: bitnami/postgresql
+  mysql: bitnami/mysql
+  mongodb: bitnami/mongodb
+  kafka: bitnami/kafka
+  elasticsearch: bitnami/elasticsearch
+  prometheus: prometheus-community/prometheus
+  grafana: grafana/grafana
+  cert-manager: jetstack/cert-manager
+  nginx-ingress: ingress-nginx/ingress-nginx

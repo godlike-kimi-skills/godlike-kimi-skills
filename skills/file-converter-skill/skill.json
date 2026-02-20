@@ -1,0 +1,24 @@
+{
+  "name": "file-converter-skill",
+  "version": "1.0.0",
+  "category": "utility",
+  "description": "File format conversion utility supporting CSV/JSON/XML/Excel and encoding conversions",
+  "author": "godlike-kimi-skills",
+  "entry_point": "main.py",
+  "python_version": ">=3.8",
+  "tags": [
+    "file-conversion",
+    "csv",
+    "json",
+    "xml",
+    "excel",
+    "encoding",
+    "utility"
+  ],
+  "dependencies": [
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+    "xmltodict>=0.13.0",
+    "chardet>=5.0.0"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "elasticsearch-skill",
+  "category": "database",
+  "version": "1.0.0",
+  "description": "Elasticsearch search management with index operations, Query DSL, and aggregations",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "keywords": ["elasticsearch", "search", "index", "query", "aggregation", "full-text"],
+  "entry_point": "scripts/main.py",
+  "dependencies": ["elasticsearch", "requests", "jsonschema"],
+  "min_python_version": "3.8"
+}

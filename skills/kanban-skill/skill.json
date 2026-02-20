@@ -1,0 +1,16 @@
+{
+  "name": "kanban-skill",
+  "version": "1.0.0",
+  "category": "productivity",
+  "description": "基于Markdown文件的看板管理工具，支持YAML frontmatter，无需数据库",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "tags": ["kanban", "markdown", "productivity", "task-management"],
+  "requirements": ["pyyaml"],
+  "config": {
+    "kanban_dir": "./kanban_boards",
+    "default_columns": ["待办", "进行中", "已完成"]
+  }
+}

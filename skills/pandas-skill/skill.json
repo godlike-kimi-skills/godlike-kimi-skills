@@ -1,0 +1,12 @@
+{
+  "name": "pandas-skill",
+  "version": "1.0.0",
+  "category": "data-science",
+  "description": "Pandas data analysis skill for data cleaning, transformation, and statistical analysis. Use when analyzing data, creating visualizations, or when user mentions 'pandas', 'data analysis', 'data cleaning', 'dataframe'.",
+  "author": "Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "keywords": ["pandas", "data analysis", "dataframe", "csv", "excel", "data cleaning"],
+  "dependencies": ["pandas", "numpy", "openpyxl"],
+  "min_kimi_version": "1.0.0"
+}

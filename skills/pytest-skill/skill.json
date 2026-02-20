@@ -1,0 +1,36 @@
+{
+  "name": "pytest-skill",
+  "version": "1.0.0",
+  "description": "PyTest测试框架 - 测试生成、覆盖率分析、Fixtures管理",
+  "category": "python",
+  "author": "godlike-kimi-skills",
+  "tags": ["pytest", "testing", "coverage", "fixtures", "python"],
+  "entry": "main.py",
+  "main_function": "main",
+  "requirements": [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-xdist>=3.0.0",
+    "pytest-mock>=3.10.0",
+    "coverage>=7.0.0"
+  ],
+  "python_version": ">=3.8",
+  "config_schema": {
+    "testpaths": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": ["tests"]
+    },
+    "coverage_target": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 80
+    },
+    "parallel_workers": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 4
+    }
+  }
+}

@@ -1,0 +1,61 @@
+# FFmpeg Skill Configuration
+
+ffmpeg:
+  # Binary paths
+  binaries:
+    ffmpeg: ffmpeg
+    ffprobe: ffprobe
+    
+  # Default video settings
+  video:
+    defaults:
+      codec: libx264
+      preset: medium
+      crf: 23
+      pix_fmt: yuv420p
+      
+    presets:
+      fast: ultrafast
+      balanced: medium
+      quality: slow
+      
+    crf_ranges:
+      lossless: 17
+      high_quality: 20
+      standard: 23
+      acceptable: 28
+      low: 35
+
+  # Default audio settings
+  audio:
+    defaults:
+      codec: aac
+      bitrate: 128k
+      sample_rate: 44100
+      channels: 2
+      
+    quality_presets:
+      low: 96k
+      standard: 128k
+      high: 192k
+      premium: 320k
+
+  # Thumbnail settings
+  thumbnails:
+    default_width: 320
+    default_time_position: 0.1  # 10% of duration
+    format: jpg
+    quality: 2  # 2-31, lower is better
+
+  # Batch processing
+  batch:
+    parallel_workers: 4
+    continue_on_error: true
+    output_suffix: _converted
+
+# Skill behavior
+skill:
+  overwrite_by_default: false
+  preserve_metadata: true
+  fast_start_for_web: true  # -movflags +faststart
+  validate_output: true

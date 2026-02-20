@@ -1,0 +1,13 @@
+{
+  "name": "eslint-prettier-skill",
+  "category": "frontend",
+  "version": "1.0.0",
+  "description": "ESLint和Prettier配置工具。支持规则配置、自动修复、集成设置和代码风格统一。Use when developing frontend applications, formatting code, or when user mentions 'ESLint', 'Prettier', 'lint', 'format', 'React', 'Vue'.",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "triggers": ["eslint", "prettier", "lint", "format", "react", "vue", "frontend"],
+  "keywords": ["eslint", "prettier", "linting", "formatting", "code-style", "quality"],
+  "dependencies": ["colorama>=0.4.4"],
+  "python_version": ">=3.8"
+}

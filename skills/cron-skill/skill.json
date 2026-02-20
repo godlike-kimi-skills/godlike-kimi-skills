@@ -1,0 +1,50 @@
+{
+  "name": "cron-skill",
+  "version": "1.0.0",
+  "description": "Cron expression tool for generation, validation, next execution calculation and human-readable description",
+  "category": "utility",
+  "author": "Kimi Skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "python_version": ">=3.8",
+  "dependencies": [],
+  "keywords": [
+    "cron",
+    "schedule",
+    "expression",
+    "crontab",
+    "timer",
+    "scheduler"
+  ],
+  "commands": [
+    {
+      "name": "validate",
+      "description": "Validate cron expression syntax"
+    },
+    {
+      "name": "next",
+      "description": "Get next execution time"
+    },
+    {
+      "name": "schedule",
+      "description": "Get multiple execution times"
+    },
+    {
+      "name": "describe",
+      "description": "Convert to human-readable description"
+    },
+    {
+      "name": "generate",
+      "description": "Generate cron from description"
+    },
+    {
+      "name": "presets",
+      "description": "List preset expressions"
+    },
+    {
+      "name": "fields",
+      "description": "Show field information"
+    }
+  ]
+}

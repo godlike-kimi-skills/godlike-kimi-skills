@@ -1,0 +1,10 @@
+{
+  "name": "openai-api-skill",
+  "category": "ai-ml",
+  "version": "1.0.0",
+  "description": "OpenAI API调用工具，支持Chat/Completion API、Embedding和图像生成",
+  "author": "godlike-kimi",
+  "dependencies": ["openai", "requests", "pillow", "numpy"],
+  "entry_point": "main.py",
+  "python_version": ">=3.8"
+}

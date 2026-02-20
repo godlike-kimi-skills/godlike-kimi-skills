@@ -1,0 +1,39 @@
+{
+  "name": "mypy-skill",
+  "version": "1.0.0",
+  "description": "Python类型检查 - 类型检查、错误修复、配置优化",
+  "category": "python",
+  "author": "godlike-kimi-skills",
+  "tags": ["mypy", "type-checking", "typing", "python", "static-analysis"],
+  "entry": "main.py",
+  "main_function": "main",
+  "requirements": [
+    "mypy>=1.0.0",
+    "typing-extensions>=4.0.0",
+    "types-requests",
+    "types-setuptools"
+  ],
+  "python_version": ">=3.8",
+  "config_schema": {
+    "strict_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "ignore_missing_imports": {
+      "type": "boolean",
+      "default": true
+    },
+    "disallow_untyped_defs": {
+      "type": "boolean",
+      "default": false
+    },
+    "python_version": {
+      "type": "string",
+      "default": "3.10"
+    },
+    "show_error_codes": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

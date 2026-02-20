@@ -1,0 +1,21 @@
+{
+    "network": "mainnet-beta",
+    "rpc_url": "https://api.mainnet-beta.solana.com",
+    "private_key": "YOUR_BASE58_ENCODED_PRIVATE_KEY",
+    "commitment": "confirmed",
+    "timeout": 30,
+    "skip_preflight": false,
+    "preflight_commitment": "confirmed",
+    "encoding": "base64",
+    "programs": {
+        "token_program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "associated_token_program": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+    },
+    "tokens": [
+        {
+            "symbol": "USDC",
+            "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "decimals": 6
+        }
+    ]
+}

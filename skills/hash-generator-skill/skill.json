@@ -1,0 +1,21 @@
+{
+  "name": "hash-generator-skill",
+  "version": "1.0.0",
+  "category": "utility",
+  "description": "Cryptographic hash generator supporting MD5, SHA family, HMAC, and file hashing",
+  "author": "godlike-kimi-skills",
+  "entry_point": "main.py",
+  "python_version": ">=3.8",
+  "tags": [
+    "hash",
+    "cryptography",
+    "md5",
+    "sha",
+    "hmac",
+    "security",
+    "utility"
+  ],
+  "dependencies": [
+    "hashlib"
+  ]
+}

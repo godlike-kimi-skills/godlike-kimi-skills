@@ -1,0 +1,60 @@
+skill:
+  name: docker-skill
+  version: 1.0.0
+  
+docker:
+  # Docker主机地址，默认使用本地socket
+  host: unix:///var/run/docker.sock
+  # Windows使用: npipe:////./pipe/docker_engine
+  # 远程使用: tcp://docker-host:2376
+  
+  # TLS配置（远程连接时）
+  tls:
+    enabled: false
+    ca_cert: null
+    client_cert: null
+    client_key: null
+    verify: true
+  
+  # 默认超时设置（秒）
+  timeout: 60
+  
+  # 日志配置
+  logging:
+    level: info
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # 安全设置
+  security:
+    # 是否允许删除运行中的容器
+    allow_force_remove: true
+    # 是否允许删除基础镜像
+    allow_base_image_removal: false
+    # 敏感环境变量列表（日志中会被隐藏）
+    sensitive_env_vars:
+      - PASSWORD
+      - SECRET
+      - TOKEN
+      - KEY
+      - CREDENTIAL
+      - API_KEY
+
+# Compose配置
+compose:
+  # 默认Compose文件
+  default_files:
+    - docker-compose.yml
+    - docker-compose.yaml
+  # 项目名前缀
+  project_name_prefix: ""
+  # 默认网络驱动
+  network_driver: bridge
+
+# 输出配置
+output:
+  # 默认输出格式: table, json, yaml
+  format: table
+  # 是否启用彩色输出
+  color: true
+  # 时间格式
+  time_format: "%Y-%m-%d %H:%M:%S"

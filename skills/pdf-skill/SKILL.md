@@ -2,6 +2,47 @@
 
 一个功能强大的PDF处理技能，支持文本提取、文档合并、页面拆分、PDF转图片等操作。
 
+## 何时使用本 Skill
+
+**Use this skill when:**
+- 从 PDF 中提取文本内容
+- 合并多个 PDF 文件为一个文档
+- 拆分 PDF 为多个独立文件
+- 提取指定页面范围
+- 将 PDF 页面转换为图片
+- 获取 PDF 元数据信息
+
+**触发关键词：** "PDF", "pdf", "extract", "merge", "split", "convert", "page", "text"
+
+**典型场景：**
+1. 批量提取合同/论文的文本内容进行分析
+2. 合并多个扫描件为一个完整文档
+3. 从大文档中提取特定章节/页面
+4. 将 PDF 转换为图片用于演示或展示
+5. 检查 PDF 文档的基本信息（作者、页数、加密状态）
+
+---
+
+## Out of Scope / 不适用范围
+
+本 Skill **不** 处理以下情况：
+
+- **OCR 文字识别** - 不处理扫描版 PDF 的文字识别（扫描件需使用专门 OCR 工具如 Tesseract）
+- **PDF 编辑** - 不支持直接编辑 PDF 内容（如修改文字、插入图片）
+- **PDF 创建/生成** - 不支持从空白创建新的 PDF（请使用 docx-skill 生成 Word 后转换）
+- **PDF 表单填写** - 不支持填写 PDF 表单字段
+- **数字签名** - 不支持添加或验证 PDF 数字签名
+- **高级加密** - 不支持破解或移除 PDF 密码保护（仅支持使用已知密码解密）
+- **复杂格式保留** - 提取文本时可能丢失复杂排版格式（表格、多栏等）
+
+替代方案：
+- OCR 识别：使用 Tesseract OCR 或 Adobe Acrobat Pro
+- PDF 编辑：使用 Adobe Acrobat Pro、PDF-XChange Editor 或 LibreOffice
+- 创建 PDF：使用 docx-skill 生成 Word 后导出为 PDF
+- 表单填写：使用 Adobe Acrobat Reader 或在线工具
+
+---
+
 ## 功能概述
 
 | 功能 | 描述 |

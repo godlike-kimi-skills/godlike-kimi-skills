@@ -1,0 +1,17 @@
+{
+  "name": "elevenlabs-skill",
+  "version": "1.0.0",
+  "category": "media",
+  "description": "ElevenLabs TTS语音合成工具，支持文本转语音、声音克隆和多语言",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry_point": "main.py",
+  "language": "python",
+  "tags": ["tts", "elevenlabs", "voice", "speech", "audio", "clone"],
+  "requirements": ["elevenlabs"],
+  "config": {
+    "default_voice": "Rachel",
+    "default_model": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128"
+  }
+}

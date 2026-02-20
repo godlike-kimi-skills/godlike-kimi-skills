@@ -1,0 +1,5 @@
+# SQLite Skill Requirements
+# Install with: pip install -r requirements.txt
+
+# No external dependencies required
+# Uses Python standard library sqlite3 module

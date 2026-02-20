@@ -1,0 +1,14 @@
+{
+  "name": "terraform-skill",
+  "version": "1.0.0",
+  "category": "cloud",
+  "description": "Terraform基础设施管理助手，支持Plan/Apply/State管理、模块操作。Use when managing cloud resources, deploying infrastructure, or when user mentions 'Terraform', 'IaC', 'Infrastructure as Code'",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry": "main.py",
+  "language": "python",
+  "requirements": ["pyhcl>=0.4.4", "python-terraform>=0.10.1"],
+  "keywords": ["terraform", "iac", "infrastructure", "devops", "cloud", "provisioning"],
+  "supported_platforms": ["windows", "linux", "macos"],
+  "env_vars": ["TF_VAR_environment", "TF_VAR_region", "TF_LOG"]
+}

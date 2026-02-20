@@ -1,0 +1,15 @@
+# Prometheus Skill Dependencies
+# Python >= 3.8
+
+# Core dependencies (Python standard library only)
+# Uses urllib for HTTP requests (no external dependencies)
+
+# Optional dependencies for enhanced features
+# requests>=2.25.0  # Alternative HTTP client
+# prometheus-client>=0.12.0  # For custom metrics
+# pandas>=1.3.0  # For data analysis
+
+# Development dependencies
+# pytest>=6.2.0  # For testing
+# pytest-cov>=2.12.0  # For coverage
+# responses>=0.18.0  # For mocking HTTP requests
