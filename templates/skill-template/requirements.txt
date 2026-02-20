@@ -1,0 +1,9 @@
+# 核心依赖 / Core Dependencies
+# 仅放置必须的依赖 / Only include essential dependencies
+
+# 示例 / Example:
+# pydantic>=2.0.0,<3.0.0
+# requests>=2.31.0,<3.0.0
+
+# 如无需第三方依赖，保留此空文件即可
+# If no third-party dependencies needed, keep this file empty
