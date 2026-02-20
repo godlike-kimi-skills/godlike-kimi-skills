@@ -1,0 +1,36 @@
+name: Daily Competitor Scan
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # 每天上午8点扫描
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests pyyaml
+      
+      - name: Run daily scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/daily-competitor-scan.py
+      
+      - name: Commit scan results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add scan-reports/ porting-queue.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Daily scan: $(date +%Y-%m-%d)"
+          git push
