@@ -1,0 +1,15 @@
+# Skill Creator Enhanced
+# 增强版技能创建器
+# 
+# 注意：本工具使用 Python 标准库实现，无强制第三方依赖
+# 以下依赖仅用于开发和测试
+
+# Development dependencies (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+
+# Type hints (optional)
+# types-setuptools

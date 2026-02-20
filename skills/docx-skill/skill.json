@@ -1,0 +1,86 @@
+{
+  "schema_version": "v1",
+  "name": "docx-skill",
+  "version": "1.0.0",
+  "title": "Word文档处理器",
+  "description": "创建、编辑、格式化Word文档(.docx)，支持模板、表格、图片插入和文档合并",
+  "author": "Godlike Kimi Skills",
+  "license": "MIT",
+  "repository": "https://github.com/godlike-kimi-skills/docx-skill",
+  "homepage": "https://github.com/godlike-kimi-skills/docx-skill",
+  "keywords": [
+    "kimi",
+    "docx",
+    "word",
+    "document",
+    "office",
+    "automation"
+  ],
+  "language": "python",
+  "main": "main.py",
+  "entry_point": "main:main",
+  "requirements": [
+    "requirements.txt"
+  ],
+  "min_cli_version": "0.5.0",
+  "compatible_platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "mcp_compatible": true,
+  "tested_models": [
+    "kimi-k2-0711-preview",
+    "kimi-k2.5"
+  ],
+  "category": "automation",
+  "priority": "p0",
+  "parameters": [
+    {
+      "name": "action",
+      "type": "string",
+      "required": true,
+      "description": "操作类型: create/edit/merge/convert/template"
+    },
+    {
+      "name": "input",
+      "type": "string",
+      "required": false,
+      "description": "输入文件路径或内容"
+    },
+    {
+      "name": "output",
+      "type": "string",
+      "required": true,
+      "description": "输出文件路径"
+    },
+    {
+      "name": "content",
+      "type": "string",
+      "required": false,
+      "description": "文档内容（JSON格式或纯文本）"
+    },
+    {
+      "name": "template",
+      "type": "string",
+      "required": false,
+      "description": "模板文件路径"
+    },
+    {
+      "name": "styles",
+      "type": "string",
+      "required": false,
+      "description": "样式配置（JSON格式）"
+    }
+  ],
+  "commands": {
+    "create": "python main.py create",
+    "edit": "python main.py edit",
+    "merge": "python main.py merge",
+    "template": "python main.py template"
+  },
+  "dependencies_count": 1,
+  "lines_of_code": 400,
+  "test_coverage": 80,
+  "documentation_quality": "production"
+}

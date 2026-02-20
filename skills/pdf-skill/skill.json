@@ -1,0 +1,68 @@
+{
+  "name": "pdf-skill",
+  "title": "PDF处理器",
+  "title_en": "PDF Processor",
+  "description": "提取、创建、合并、转换PDF文件，支持文本提取、页面拆分合并、PDF转图片等功能",
+  "description_en": "Extract, create, merge, and convert PDF files with text extraction, page splitting/merging, PDF to image conversion",
+  "version": "1.0.0",
+  "category": "automation",
+  "author": "godlike-kimi-skills",
+  "license": "MIT",
+  "entry": "main.py",
+  "language": "python",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "description": "操作类型: extract_text, merge, split, extract_pages, pdf_to_images, info",
+      "enum": ["extract_text", "merge", "split", "extract_pages", "pdf_to_images", "info"]
+    },
+    "input": {
+      "type": "string",
+      "required": true,
+      "description": "输入文件路径或目录（merge时为目录）"
+    },
+    "output": {
+      "type": "string",
+      "required": false,
+      "description": "输出文件路径或目录"
+    },
+    "pages": {
+      "type": "string",
+      "required": false,
+      "description": "页面范围，如 '1-5' 或 '1,3,5' 或 '1-3,5,7-9'"
+    },
+    "password": {
+      "type": "string",
+      "required": false,
+      "description": "PDF密码（用于加密文档）"
+    },
+    "dpi": {
+      "type": "integer",
+      "required": false,
+      "default": 200,
+      "description": "PDF转图片时的DPI设置"
+    },
+    "format": {
+      "type": "string",
+      "required": false,
+      "default": "png",
+      "description": "图片格式: png, jpg, jpeg, tiff",
+      "enum": ["png", "jpg", "jpeg", "tiff"]
+    },
+    "merge_strategy": {
+      "type": "string",
+      "required": false,
+      "default": "filename",
+      "description": "合并排序策略: filename, modified_time",
+      "enum": ["filename", "modified_time"]
+    }
+  },
+  "dependencies": ["PyPDF2>=3.0.0", "pdfplumber>=0.9.0"],
+  "tags": ["pdf", "document", "automation", "extraction", "merge", "split"],
+  "homepage": "https://github.com/godlike-kimi-skills/pdf-skill",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/godlike-kimi-skills/pdf-skill.git"
+  }
+}

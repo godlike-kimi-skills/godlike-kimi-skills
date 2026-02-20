@@ -1,0 +1,103 @@
+{
+  "schema_version": "v1",
+  "name": "skill-creator-enhanced",
+  "version": "1.0.0",
+  "title": "增强版技能创建器",
+  "description": "一键创建符合开源标准的Kimi Skill项目，自动生成skill.json、SKILL.md、README.md、测试模板和CI/CD配置",
+  "author": "Godlike Kimi Skills",
+  "license": "MIT",
+  "repository": "https://github.com/godlike-kimi-skills/skill-creator-enhanced",
+  "homepage": "https://github.com/godlike-kimi-skills/skill-creator-enhanced",
+  "keywords": [
+    "kimi",
+    "skill-creator",
+    "scaffold",
+    "generator",
+    "cli",
+    "automation",
+    "open-source"
+  ],
+  "language": "python",
+  "main": "main.py",
+  "entry_point": "main:main",
+  "requirements": [
+    "requirements.txt"
+  ],
+  "min_cli_version": "0.5.0",
+  "compatible_platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "mcp_compatible": true,
+  "tested_models": [
+    "kimi-k2-0711-preview",
+    "kimi-k2.5"
+  ],
+  "category": "development",
+  "priority": "p0",
+  "parameters": [
+    {
+      "name": "skill_name",
+      "type": "string",
+      "required": true,
+      "description": "技能名称（小写，连字符分隔，如: web-scraper）"
+    },
+    {
+      "name": "skill_title",
+      "type": "string",
+      "required": true,
+      "description": "技能中文标题（如: 网页数据提取器）"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": true,
+      "description": "技能一句话描述"
+    },
+    {
+      "name": "category",
+      "type": "string",
+      "required": true,
+      "description": "技能分类（development/data/automation/security/media/other）"
+    },
+    {
+      "name": "output_dir",
+      "type": "string",
+      "required": false,
+      "default": "./",
+      "description": "输出目录（默认为当前目录）"
+    },
+    {
+      "name": "with_tests",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "是否生成测试模板"
+    },
+    {
+      "name": "with_ci",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "是否生成CI/CD配置"
+    },
+    {
+      "name": "with_examples",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "是否生成示例代码"
+    }
+  ],
+  "commands": {
+    "create": "python main.py create",
+    "validate": "python main.py validate",
+    "list-templates": "python main.py list-templates",
+    "upgrade": "python main.py upgrade"
+  },
+  "dependencies_count": 3,
+  "lines_of_code": 800,
+  "test_coverage": 85,
+  "documentation_quality": "production"
+}

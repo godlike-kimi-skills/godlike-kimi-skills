@@ -1,0 +1,84 @@
+{
+  "name": "xlsx-skill",
+  "title": "Excel处理器",
+  "title_en": "Excel Processor",
+  "description": "读取、写入、格式化Excel文件，支持公式和图表",
+  "description_en": "Read, write, and format Excel files with support for formulas and charts",
+  "category": "data",
+  "version": "1.0.0",
+  "author": "godlike-kimi",
+  "license": "MIT",
+  "repository": "https://github.com/godlike-kimi/skills/xlsx-skill",
+  "entry_point": "main.py",
+  "language": "python",
+  "parameters": {
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": ["read", "write", "append", "merge", "format", "chart", "formula"],
+      "description": "要执行的操作类型"
+    },
+    "input": {
+      "type": "string",
+      "required": false,
+      "description": "输入文件路径"
+    },
+    "output": {
+      "type": "string",
+      "required": false,
+      "description": "输出文件路径"
+    },
+    "sheet": {
+      "type": "string",
+      "required": false,
+      "default": "Sheet1",
+      "description": "工作表名称"
+    },
+    "data": {
+      "type": "array|object",
+      "required": false,
+      "description": "要写入的数据（数组或对象）"
+    },
+    "range": {
+      "type": "string",
+      "required": false,
+      "description": "单元格范围，如 A1:D10"
+    },
+    "headers": {
+      "type": "boolean|array",
+      "required": false,
+      "default": true,
+      "description": "是否包含表头，或自定义表头数组"
+    },
+    "format": {
+      "type": "object",
+      "required": false,
+      "description": "格式化选项"
+    },
+    "chart_type": {
+      "type": "string",
+      "required": false,
+      "enum": ["bar", "line", "pie", "scatter"],
+      "description": "图表类型"
+    },
+    "formula": {
+      "type": "string",
+      "required": false,
+      "description": "Excel公式"
+    }
+  },
+  "examples": [
+    {
+      "description": "读取Excel文件",
+      "command": "python main.py read --input data.xlsx --sheet Sheet1"
+    },
+    {
+      "description": "写入数据到Excel",
+      "command": "python main.py write --input data.xlsx --data '[{\"name\":\"张三\",\"age\":25}]'"
+    },
+    {
+      "description": "创建图表",
+      "command": "python main.py chart --input data.xlsx --chart_type bar --output chart.xlsx"
+    }
+  ]
+}

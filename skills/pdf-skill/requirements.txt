@@ -1,0 +1,13 @@
+# Core PDF processing libraries
+PyPDF2>=3.0.0
+pdfplumber>=0.9.0
+
+# Optional: For PDF to image conversion
+# pymupdf>=1.23.0
+
+# Optional: Alternative PDF to image (requires poppler)
+# pdf2image>=1.16.3
+
+# Development dependencies (for testing)
+pytest>=7.0.0
+pytest-cov>=4.0.0
