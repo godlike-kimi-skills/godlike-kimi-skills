@@ -4,6 +4,56 @@
 
 感谢你对 Godlike Kimi Skills 项目的关注！我们欢迎各种形式的贡献。
 
+## 📜 提交规范 / Commit Convention
+
+> **所有提交必须使用中英文双语，中文在前**
+
+### 提交信息格式
+
+```
+<类型>: <中文描述> / <English description>
+
+<详细中文说明>
+<Detailed English description>
+```
+
+### 类型 / Type
+
+| 类型 | 中文 | English | 用途 |
+|------|------|---------|------|
+| `feat` | 功能 | Feature | 新功能 |
+| `fix` | 修复 | Bug Fix | 修复bug |
+| `docs` | 文档 | Documentation | 仅文档更新 |
+| `style` | 格式 | Code Style | 代码格式（不影响功能）|
+| `refactor` | 重构 | Refactoring | 代码重构 |
+| `perf` | 性能 | Performance | 性能优化 |
+| `test` | 测试 | Tests | 测试相关 |
+| `chore` | 构建 | Chores | 构建/工具相关 |
+
+### 示例 / Examples
+
+```bash
+# 添加新skill
+feat: 添加股票预警skill / Add stock alert skill
+
+添加A股价格预警功能，支持微信通知
+Add A-share price alert with WeChat notifications
+
+# 修复bug
+fix: 修复内存泄漏问题 / Fix memory leak issue
+
+修复长期运行时的内存泄漏
+Fix memory leak during long-running operations
+
+# 更新文档
+docs: 更新README安装说明 / Update README installation guide
+
+添加Windows安装步骤
+Add Windows installation steps
+```
+
+---
+
 ## 🚀 快速开始
 
 ### 贡献方式

@@ -1,0 +1,50 @@
+name: 功能请求 / Feature Request
+description: 提议新功能 / Suggest a new feature
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 功能描述 / Feature Description
+        <!-- 请使用中英文双语描述，中文在前 / Please describe in bilingual, Chinese first -->
+
+  - type: textarea
+    id: description-zh
+    attributes:
+      label: 中文描述
+      description: 请用中文描述你想要的功能
+      placeholder: 清晰地描述你的功能建议...
+    validations:
+      required: true
+
+  - type: textarea
+    id: description-en
+    attributes:
+      label: English Description
+      description: Please describe the feature you want in English
+      placeholder: Clearly describe your feature suggestion...
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: 使用场景 / Use Case
+      description: 这个功能在什么场景下有用 / In what scenarios would this feature be useful
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 替代方案 / Alternatives
+      description: 你考虑过哪些替代方案 / What alternatives have you considered
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 检查清单 / Checklist
+      options:
+        - label: 我已搜索现有Issue / I have searched existing issues
+          required: true
+        - label: 这是一个新功能请求 / This is a new feature request
+          required: true
