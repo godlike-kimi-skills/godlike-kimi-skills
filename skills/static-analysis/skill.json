@@ -1,0 +1,115 @@
+{
+  "schema_version": "v1",
+  "name": "static-analysis",
+  "version": "1.0.0",
+  "title": "代码静态分析工具",
+  "description": "Use when analyzing code quality, checking Python code for issues, measuring code complexity, performing security scans, or when user mentions 'static analysis', 'code quality', 'complexity check', 'security scan', 'linting', 'code review'. 专业的Python代码静态分析工具，支持代码质量检查、复杂度分析、安全检查、风格检查和自动生成报告。",
+  "author": "Godlike Kimi Skills",
+  "license": "MIT",
+  "repository": "https://github.com/godlike-kimi-skills/static-analysis",
+  "homepage": "https://github.com/godlike-kimi-skills/static-analysis",
+  "keywords": [
+    "static-analysis",
+    "code-quality",
+    "complexity-analysis",
+    "security-scan",
+    "linting",
+    "code-review",
+    "python-analysis",
+    "cyclomatic-complexity",
+    "maintainability-index",
+    "code-metrics"
+  ],
+  "language": "python",
+  "main": "main.py",
+  "entry_point": "main:main",
+  "requirements": [
+    "requirements.txt"
+  ],
+  "min_cli_version": "0.5.0",
+  "compatible_platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "mcp_compatible": true,
+  "tested_models": [
+    "kimi-k2-0711-preview",
+    "kimi-k2.5"
+  ],
+  "category": "development",
+  "priority": "p0",
+  "parameters": [
+    {
+      "name": "action",
+      "type": "string",
+      "required": true,
+      "description": "操作类型: analyze/complexity/security/style/compare/generate-config"
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "required": true,
+      "description": "分析目标路径（文件或目录）"
+    },
+    {
+      "name": "output_dir",
+      "type": "string",
+      "required": false,
+      "default": "./analysis-results",
+      "description": "分析结果输出目录"
+    },
+    {
+      "name": "exclude_patterns",
+      "type": "string",
+      "required": false,
+      "description": "排除模式，逗号分隔（如: __pycache__,*.pyc,venv）"
+    },
+    {
+      "name": "min_complexity",
+      "type": "integer",
+      "required": false,
+      "default": 10,
+      "description": "最小复杂度阈值（仅报告高于此值的函数）"
+    },
+    {
+      "name": "max_line_length",
+      "type": "integer",
+      "required": false,
+      "default": 100,
+      "description": "最大行长度"
+    },
+    {
+      "name": "strict_mode",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "严格模式（更严格的检查标准）"
+    },
+    {
+      "name": "baseline_path",
+      "type": "string",
+      "required": false,
+      "description": "基线报告路径（用于对比分析）"
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "required": false,
+      "default": "html",
+      "description": "报告格式: html/json/markdown"
+    }
+  ],
+  "commands": {
+    "analyze": "python main.py --action analyze",
+    "complexity": "python main.py --action complexity",
+    "security": "python main.py --action security",
+    "style": "python main.py --action style",
+    "compare": "python main.py --action compare",
+    "generate-config": "python main.py --action generate-config"
+  },
+  "dependencies_count": 5,
+  "lines_of_code": 1000,
+  "test_coverage": 85,
+  "documentation_quality": "production"
+}

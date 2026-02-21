@@ -1,0 +1,12 @@
+# Report-In Skill Dependencies
+# Install with: pip install -r requirements.txt
+
+# System metrics library (optional but recommended)
+psutil>=5.9.0
+
+# For JSON/YAML handling
+pyyaml>=6.0
+
+# Testing dependencies (for development)
+pytest>=7.0.0
+pytest-cov>=4.0.0

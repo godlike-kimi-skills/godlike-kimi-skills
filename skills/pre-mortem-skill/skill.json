@@ -1,0 +1,34 @@
+{
+  "name": "pre-mortem-skill",
+  "version": "1.0.0",
+  "description": "Pre-mortem risk analysis tool for project planning. Use when starting new projects, evaluating risks, making important decisions, or when user mentions 'pre-mortem', 'risk analysis', 'what could go wrong', 'failure prevention', 'project risk'",
+  "author": "godlike-kimi-skills",
+  "category": "thinking",
+  "tags": [
+    "pre-mortem",
+    "risk-analysis",
+    "decision-making",
+    "project-planning",
+    "failure-prevention",
+    "prospective-hindsight",
+    "mental-model"
+  ],
+  "entry_point": "main.py",
+  "commands": {
+    "analyze": "Run pre-mortem analysis on a project/decision",
+    "template": "Generate pre-mortem worksheet template",
+    "session": "Guide interactive pre-mortem session",
+    "report": "Generate risk analysis report"
+  },
+  "triggers": [
+    "pre-mortem",
+    "what could go wrong",
+    "why might this fail",
+    "risk analysis",
+    "failure modes",
+    "project risk",
+    "before we start",
+    "assume failure",
+    "prospective hindsight"
+  ]
+}

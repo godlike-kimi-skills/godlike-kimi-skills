@@ -1,0 +1,134 @@
+{
+  "schema_version": "v1",
+  "name": "webapp-testing",
+  "version": "1.0.0",
+  "title": "Web应用自动化测试",
+  "description": "Use when testing web applications, creating E2E tests, performing visual regression testing, or when user mentions 'web testing', 'E2E test', 'browser automation test', 'visual testing', 'screenshot comparison'. 完整的Web应用端到端测试解决方案，支持多浏览器测试、视觉回归测试、性能测试和截图对比。",
+  "author": "Godlike Kimi Skills",
+  "license": "MIT",
+  "repository": "https://github.com/godlike-kimi-skills/webapp-testing",
+  "homepage": "https://github.com/godlike-kimi-skills/webapp-testing",
+  "keywords": [
+    "webapp-testing",
+    "e2e-testing",
+    "playwright",
+    "selenium",
+    "visual-regression",
+    "screenshot-comparison",
+    "performance-testing",
+    "browser-automation",
+    "automated-testing",
+    "cross-browser"
+  ],
+  "language": "python",
+  "main": "main.py",
+  "entry_point": "main:main",
+  "requirements": [
+    "requirements.txt"
+  ],
+  "min_cli_version": "0.5.0",
+  "compatible_platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "mcp_compatible": true,
+  "tested_models": [
+    "kimi-k2-0711-preview",
+    "kimi-k2.5"
+  ],
+  "category": "testing",
+  "priority": "p0",
+  "parameters": [
+    {
+      "name": "action",
+      "type": "string",
+      "required": true,
+      "description": "操作类型: test/visual/performance/compare/generate-config"
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "required": false,
+      "description": "目标网页URL"
+    },
+    {
+      "name": "test_file",
+      "type": "string",
+      "required": false,
+      "description": "测试文件路径"
+    },
+    {
+      "name": "browser",
+      "type": "string",
+      "required": false,
+      "default": "chromium",
+      "description": "浏览器类型: chromium/firefox/webkit"
+    },
+    {
+      "name": "headless",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "是否无头模式运行"
+    },
+    {
+      "name": "screenshot_path",
+      "type": "string",
+      "required": false,
+      "description": "截图保存路径"
+    },
+    {
+      "name": "baseline_path",
+      "type": "string",
+      "required": false,
+      "description": "基准截图路径（用于对比）"
+    },
+    {
+      "name": "output_dir",
+      "type": "string",
+      "required": false,
+      "default": "./test-results",
+      "description": "测试结果输出目录"
+    },
+    {
+      "name": "viewport_width",
+      "type": "integer",
+      "required": false,
+      "default": 1920,
+      "description": "视口宽度"
+    },
+    {
+      "name": "viewport_height",
+      "type": "integer",
+      "required": false,
+      "default": 1080,
+      "description": "视口高度"
+    },
+    {
+      "name": "threshold",
+      "type": "float",
+      "required": false,
+      "default": 0.1,
+      "description": "视觉对比阈值(0-1)，越小越严格"
+    },
+    {
+      "name": "timeout",
+      "type": "integer",
+      "required": false,
+      "default": 30000,
+      "description": "操作超时时间(毫秒)"
+    }
+  ],
+  "commands": {
+    "test": "python main.py --action test",
+    "visual": "python main.py --action visual",
+    "performance": "python main.py --action performance",
+    "compare": "python main.py --action compare",
+    "generate-config": "python main.py --action generate-config"
+  },
+  "dependencies_count": 4,
+  "lines_of_code": 900,
+  "test_coverage": 85,
+  "documentation_quality": "production"
+}

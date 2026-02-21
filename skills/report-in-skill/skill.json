@@ -1,0 +1,37 @@
+{
+  "name": "report-in-skill",
+  "version": "1.0.0",
+  "description": "Generate comprehensive system status reports including completed tasks in the last 24 hours, currently running tasks, agent activities, memory usage, progress states, and port status. Use when checking system status, reviewing daily progress, monitoring agent activities, or when user mentions 'report', 'status', 'what's happening', 'agent status', 'task progress'",
+  "author": "godlike-kimi-skills",
+  "category": "monitoring",
+  "tags": [
+    "report",
+    "status",
+    "monitoring",
+    "tasks",
+    "agents",
+    "system",
+    "progress",
+    "daily-report"
+  ],
+  "entry_point": "main.py",
+  "commands": {
+    "report": "Generate full system status report",
+    "tasks": "Show completed and running tasks",
+    "agents": "Show agent activities",
+    "ports": "Check port status",
+    "memory": "Show memory usage"
+  },
+  "triggers": [
+    "report in",
+    "status report",
+    "what's happening",
+    "agent status",
+    "task progress",
+    "daily report",
+    "system status",
+    "what are agents doing",
+    "show me the report",
+    "generate report"
+  ]
+}

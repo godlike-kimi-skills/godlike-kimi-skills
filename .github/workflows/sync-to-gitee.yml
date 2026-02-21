@@ -3,8 +3,6 @@ name: Sync to Gitee
 on:
   push:
     branches: [main, master]
-  schedule:
-    - cron: '0 */6 * * *'  # 每6小时同步一次
   workflow_dispatch:
 
 jobs:
@@ -23,13 +21,3 @@ jobs:
         with:
           source-repo: 'git@github.com:godlike-kimi-skills/awesome-kimi-skills.git'
           destination-repo: 'git@gitee.com:godlike-kimi-skills/awesome-kimi-skills.git'
-      
-      - name: Notify on success
-        if: success()
-        run: |
-          echo "✅ Sync to Gitee completed successfully"
-      
-      - name: Notify on failure
-        if: failure()
-        run: |
-          echo "❌ Sync to Gitee failed"

@@ -1,0 +1,44 @@
+name: PR Quality Check
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check Skill format
+        run: |
+          errors=0
+          for skill_dir in skills/*/; do
+            if [ -d "$skill_dir" ]; then
+              skill_name=$(basename "$skill_dir")
+              skill_file="${skill_dir}SKILL.md"
+              
+              # 检查 SKILL.md 是否存在
+              if [ ! -f "$skill_file" ]; then
+                echo "❌ $skill_name: 缺少 SKILL.md"
+                errors=$((errors + 1))
+                continue
+              fi
+              
+              # 检查 frontmatter
+              if ! grep -q "^---" "$skill_file"; then
+                echo "❌ $skill_name: 缺少 frontmatter"
+                errors=$((errors + 1))
+              fi
+              
+              echo "✅ $skill_name: 格式正确"
+            fi
+          done
+          
+          if [ $errors -gt 0 ]; then
+            echo "发现 $errors 个错误"
+            exit 1
+          fi
+          
+          echo "所有 skills 格式检查通过!"
